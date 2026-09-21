@@ -273,6 +273,19 @@ export const repertorio: RepertorioItem[] = [
   { titulo: 'Tres piezas', autor: 'Stravinsky', tipo: 'solo', curso: 'EP6', funcion: 'Contemporáneo', estado: 'DESARROLLO_PROPIO' },
   { titulo: 'Grave', autor: 'Lutosławski', tipo: 'solo', curso: 'EP6', funcion: 'Contemporáneo polaco', estado: 'DESARROLLO_PROPIO' },
   { titulo: 'Sequenza IXa', autor: 'Berio', tipo: 'solo', curso: 'EP6', funcion: 'Vanguardia', estado: 'DESARROLLO_PROPIO' },
+  // Música de cámara
+  { titulo: 'Quinteto para clarinete y cuerda KV 581', autor: 'Mozart', tipo: 'camara', curso: 'EP2', funcion: 'Obra cumbre del clasicismo', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Trío op. 114', autor: 'Brahms', tipo: 'camara', curso: 'EP3', funcion: 'Romanticismo tardío', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Quinteto op. 115', autor: 'Brahms', tipo: 'camara', curso: 'EP5', funcion: 'Obra cumbre romántica', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Sonata para clarinete y piano', autor: 'Poulenc', tipo: 'camara', curso: 'EP4', funcion: 'Neoclasicismo francés', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Quinteto para clarinete', autor: 'Nielsen', tipo: 'camara', curso: 'EP5', funcion: 'Repertorio nórdico s.XX', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Historia del Soldado (suite)', autor: 'Stravinsky', tipo: 'camara', curso: 'EP6', funcion: 'Contemporáneo', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Dúos sencillos', autor: 'Klosé', tipo: 'camara', curso: 'EE1', funcion: 'Primer contacto con ensemble', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Dúos progresivos', autor: 'Lefèvre', tipo: 'camara', curso: 'EE2', funcion: 'Desarrollo de la escucha conjunta', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Dúos concertantes (selección)', autor: 'Baermann', tipo: 'camara', curso: 'EE3', funcion: 'Interacción musical', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Trío de clarinetes (arreglos)', autor: 'Varios', tipo: 'camara', curso: 'EE4', funcion: 'Preparación para EP', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Grand Duo Concertante op. 48', autor: 'Weber', tipo: 'camara', curso: 'EP1', funcion: 'Repertorio romántico', estado: 'DESARROLLO_PROPIO' },
+  { titulo: 'Fantasiestücke op. 73', autor: 'Schumann', tipo: 'camara', curso: 'EP1', funcion: 'Romanticismo (versión clarinete-piano)', estado: 'DESARROLLO_PROPIO' },
 ];
 
 // ============================================================
@@ -309,7 +322,7 @@ export const dashboardStats = {
   totalCursos: 10,
   objetivosGenerales: 12,
   objetivosEE: 40,
-  objetivosEP: 'HOLD',
+  objetivosEP: 0, // HOLD — Pendiente de desarrollo completo para EP1-EP6
   normasVerificadas: 6,
   normasHold: 2,
   rubricasGenerales: 6,

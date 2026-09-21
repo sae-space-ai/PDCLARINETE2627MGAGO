@@ -295,7 +295,7 @@ function Objetivos() {
                 <tr key={obj.id}>
                   <td className="font-mono">{obj.id}</td>
                   <td>{obj.texto}</td>
-                  <td><span className={`badge ${obj.tipo === 'tecnico' ? 'bg-red-100 text-red-800' : obj.tipo === 'interpretativo' ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'}`}>{obj.tipo}</span></td>
+                  <td><span className={`badge ${obj.tipo === 'tecnico' ? 'bg-slate-100 text-slate-800' : obj.tipo === 'interpretativo' ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'}`}>{obj.tipo}</span></td>
                   <td>{obj.trazabilidad}</td>
                   <td>{obj.indicador}</td>
                 </tr>
@@ -468,8 +468,8 @@ Trazabilidad: [norma → artículo → elemento]`}</pre>
         {['EE1', 'EE2', 'EE3', 'EE4', 'EP1', 'EP2', 'EP3', 'EP4', 'EP5', 'EP6'].map(curso => (
           <div key={curso} className="bg-white rounded-lg border border-amber-200 p-4 shadow-sm">
             <h4 className="font-semibold text-amber-900 mb-2">
-              {curso.startsWith('EE') ? `${curso.replace('EE', 'º EE — ')}Curso` : `${curso.replace('EP', 'º EP — ')}Curso`}
-              <Badge type={curso.startsWith('EE') ? 'ee' : 'ep'}>{curso}</Badge>
+              {curso.startsWith('EE') ? `${curso.replace('EE', '')}º Enseñanzas Elementales` : `${curso.replace('EP', '')}º Enseñanzas Profesionales`}
+              {' '}<Badge type={curso.startsWith('EE') ? 'ee' : 'ep'}>{curso}</Badge>
             </h4>
             <ul className="text-xs space-y-1">
               <li>UD-{curso}-01: Primeros sonidos / Consolidación técnica</li>
@@ -480,7 +480,7 @@ Trazabilidad: [norma → artículo → elemento]`}</pre>
               <li>UD-{curso}-06 a UD-{curso}-14: Desarrollo progresivo</li>
               <li>UD-{curso}-15: Evaluación y consolidación</li>
             </ul>
-            <p className="text-xs text-gray-500 mt-2">15 unidades × {curso.startsWith('EE') ? 'EE' : 'EP'} = 150 unidades totales</p>
+            <p className="text-xs text-gray-500 mt-2">15 unidades para {curso} (DESARROLLO PROPIO)</p>
           </div>
         ))}
       </div>
