@@ -14,6 +14,7 @@ const sections = [
   { id: 'rubricas', title: 'Catálogo de Rúbricas', icon: 'fa-star-half-alt', group: 'Evaluación' },
   { id: 'repertorio', title: 'Repertorio', icon: 'fa-music', group: 'Recursos' },
   { id: 'metodologia', title: 'Metodología', icon: 'fa-users', group: 'Recursos' },
+  { id: 'anexo-ii', title: 'Anexo II — Bandita (3º y 4º EE)', icon: 'fa-users-cog', group: 'Anexos' },
   { id: 'trazabilidad', title: 'Trazabilidad Normativa', icon: 'fa-link', group: 'Documentación' },
   { id: 'despliegue', title: 'Despliegue Web', icon: 'fa-globe', group: 'Documentación' },
 ];
@@ -98,6 +99,7 @@ function App() {
           {active === 'rubricas' && <Rubricas />}
           {active === 'repertorio' && <Repertorio />}
           {active === 'metodologia' && <Metodologia />}
+          {active === 'anexo-ii' && <AnexoII />}
           {active === 'trazabilidad' && <Trazabilidad />}
           {active === 'despliegue' && <Despliegue />}
         </div>
@@ -671,6 +673,163 @@ function Trazabilidad() {
       <h3 className="mt-6">Cadena de Trazabilidad</h3>
       <div className="bg-gray-50 rounded-lg p-4 font-mono text-xs">
         <p>NORMA → FINALIDAD → COMPETENCIA → OBJETIVO → CONTENIDO → UNIDAD → ACTIVIDAD → EVIDENCIA → INSTRUMENTO → CRITERIO → RÚBRICA → RESULTADO → CALIFICACIÓN</p>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// ANEXO II — BANDITA (3º y 4º EE)
+// ============================================================
+function AnexoII() {
+  return (
+    <div className="content-section">
+      <h2>Anexo II — Práctica Instrumental Conjunta (Bandita)</h2>
+      <p className="text-sm text-amber-700 italic">3º y 4º de Enseñanzas Elementales de Música</p>
+      
+      <div className="bg-teal-50 border border-teal-200 rounded-lg p-4 mb-6">
+        <p className="text-sm"><strong>Norma de referencia:</strong> Decreto 110/2007, de 22 de mayo (modificado por Decreto 54/2022). La asignatura de Práctica Instrumental Conjunta (conocida como "Bandita") es obligatoria en 3º y 4º de Enseñanzas Elementales, junto con Lenguaje Musical e Instrumento.</p>
+      </div>
+
+      <h3>Justificación de la Asignatura</h3>
+      <p>La Práctica Instrumental Conjunta constituye una oportunidad privilegiada para que el alumnado de 3º y 4º de EE experimente la música como hecho social y comunicativo. A través de la interpretación en grupo, el alumnado desarrolla habilidades de escucha activa, ajuste rítmico y dinámico, respeto al turno y compromiso con el resultado colectivo.</p>
+      <p>Esta asignatura complementa la formación instrumental individual, permitiendo aplicar los conocimientos técnicos y musicales adquiridos en el aula de instrumento en un contexto de interpretación conjunta.</p>
+
+      <h3>Objetivos de la Práctica Instrumental Conjunta</h3>
+      <ol className="list-decimal ml-6 space-y-1">
+        <li>Interpretar obras musicales en grupo con precisión rítmica y afinación adecuada.</li>
+        <li>Desarrollar la escucha activa y el ajuste mutuo entre los miembros del grupo.</li>
+        <li>Conocer y practicar las normas de comportamiento en ensayos y actuaciones públicas.</li>
+        <li>Valorar la música como medio de comunicación y expresión colectiva.</li>
+        <li>Participar activamente en las audiciones y conciertos del centro.</li>
+        <li>Desarrollar hábitos de trabajo en grupo: puntualidad, atención, respeto, compromiso.</li>
+        <li>Conocer el repertorio propio de agrupaciones instrumentales de nivel elemental.</li>
+        <li>Aplicar los conocimientos de lenguaje musical a la interpretación conjunta.</li>
+      </ol>
+
+      <h3>Contenidos</h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+          <h4 className="text-blue-800 font-semibold mb-2">Conceptuales</h4>
+          <ul className="text-sm space-y-1">
+            <li>• La música como hecho social y comunicativo</li>
+            <li>• Tipos de agrupaciones instrumentales</li>
+            <li>• El papel de cada instrumento en el conjunto</li>
+            <li>• Equilibrio sonoro y empaste</li>
+            <li>• El director: función y lenguaje gestual</li>
+          </ul>
+        </div>
+        <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+          <h4 className="text-green-800 font-semibold mb-2">Procedimentales</h4>
+          <ul className="text-sm space-y-1">
+            <li>• Interpretación de obras en grupo</li>
+            <li>• Escucha activa y ajuste rítmico</li>
+            <li>• Ajuste dinámico y de afinación</li>
+            <li>• Seguimiento de la batuta del director</li>
+            <li>• Lectura de partituras en contexto de grupo</li>
+            <li>• Calentamiento colectivo</li>
+          </ul>
+        </div>
+        <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+          <h4 className="text-purple-800 font-semibold mb-2">Actitudinales</h4>
+          <ul className="text-sm space-y-1">
+            <li>• Puntualidad y asistencia regular</li>
+            <li>• Atención y concentración en los ensayos</li>
+            <li>• Respeto al director y compañeros</li>
+            <li>• Compromiso con el resultado colectivo</li>
+            <li>• Disposición para actuar en público</li>
+            <li>• Valoración del trabajo en equipo</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Secuenciación por Curso</h3>
+      <div className="overflow-x-auto">
+        <table className="doc-table text-xs">
+          <thead><tr><th>Bloque</th><th>3º EE</th><th>4º EE</th></tr></thead>
+          <tbody>
+            <tr><td className="font-semibold">Repertorio</td><td>Obras sencillas en tonalidades hasta 2 alteraciones; arreglos para ensemble de clarinetes o agrupación mixta</td><td>Obras de dificultad media en tonalidades hasta 4 alteraciones; repertorio variado (clásico, popular, bandas sonoras)</td></tr>
+            <tr><td className="font-semibold">Ritmo y pulso</td><td>Mantenimiento del pulso común; figuras básicas (negra, corchea, blanca)</td><td>Subdivisión rítmica; síncopas sencillas; cambios de compás</td></tr>
+            <tr><td className="font-semibold">Afinación</td><td>Ajuste de afinación en notas largas y cadencias</td><td>Afinación en pasajes más rápidos; ajustes de temperamento</td></tr>
+            <tr><td className="font-semibold">Dinámica</td><td>Contrastes básicos p-f; crescendos y diminuendos simples</td><td>Dinámicas contrastadas; matices expresivos; dirección musical</td></tr>
+            <tr><td className="font-semibold">Escucha</td><td>Escucha del compañero más cercano; ajuste de tempo</td><td>Escucha global del conjunto; equilibrio entre secciones</td></tr>
+            <tr><td className="font-semibold">Director</td><td>Seguimiento de figuras básicas (inicio, corte, dinámica)</td><td>Seguimiento de indicaciones expresivas; entrada tras silencio</td></tr>
+            <tr><td className="font-semibold">Actuaciones</td><td>Audición de Navidad; audición de fin de curso</td><td>Conciertos didácticos; audiciones públicas; actos institucionales</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Metodología</h3>
+      <ul>
+        <li><strong>Ensayo por secciones:</strong> trabajo específico por familias instrumentales antes del ensayo general.</li>
+        <li><strong>Ensayo tututti:</strong> interpretación conjunta con dirección, priorizando la escucha activa.</li>
+        <li><strong>Modelado:</strong> el profesor/a muestra el resultado esperado en pasajes conflictivos.</li>
+        <li><strong>Grabación y análisis:</strong> grabar ensayos para que el alumnado escuche el resultado y proponga mejoras.</li>
+        <li><strong>Repertorio motivador:</strong> obras atractivas para el alumnado (bandas sonoras, música popular, arreglos de obras conocidas).</li>
+        <li><strong>Actuaciones frecuentes:</strong> audiciones internas y externas para motivar el trabajo y dar sentido al ensayo.</li>
+      </ul>
+
+      <h3>Evaluación</h3>
+      <table className="doc-table text-xs">
+        <thead><tr><th>Criterio</th><th>Instrumento</th><th>Ponderación</th></tr></thead>
+        <tbody>
+          <tr><td>Precisión rítmica y ajuste al tempo</td><td>Observación directa en ensayos</td><td><Badge type="hold">HOLD</Badge></td></tr>
+          <tr><td>Afinación y empaste</td><td>Observación directa; grabaciones</td><td><Badge type="hold">HOLD</Badge></td></tr>
+          <tr><td>Seguimiento de la dirección musical</td><td>Observación directa</td><td><Badge type="hold">HOLD</Badge></td></tr>
+          <tr><td>Conocimiento de la propia parte</td><td>Prueba individual de la parte</td><td><Badge type="hold">HOLD</Badge></td></tr>
+          <tr><td>Actitud, asistencia y puntualidad</td><td>Registro de asistencia; observación</td><td><Badge type="hold">HOLD</Badge></td></tr>
+          <tr><td>Participación en actuaciones públicas</td><td>Registro de participación</td><td><Badge type="hold">HOLD</Badge></td></tr>
+        </tbody>
+      </table>
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 text-sm mt-3">
+        <p><strong>Nota:</strong> Las ponderaciones exactas están en estado HOLD, pendientes de validación con las instrucciones anuales de la Consejería para el curso 2026/2027.</p>
+      </div>
+
+      <h3>Repertorio Orientativo</h3>
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 text-sm mb-3">
+        <p><strong>Nota:</strong> Todo el repertorio es DESARROLLO PROPIO. No existe normativa que establezca un repertorio obligatorio para la Bandita.</p>
+      </div>
+      <table className="doc-table text-xs">
+        <thead><tr><th>Curso</th><th>Tipo</th><th>Repertorio</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>3º EE</td><td>Arreglos para ensemble</td><td>Arreglos de melodías populares extremeñas; canciones infantiles; danzas sencillas</td><td><Badge type="hold">DESARROLLO PROPIO</Badge></td></tr>
+          <tr><td>3º EE</td><td>Transcripciones</td><td>Adaptaciones de obras clásicas sencillas (Mozart, Haydn)</td><td><Badge type="hold">DESARROLLO PROPIO</Badge></td></tr>
+          <tr><td>3º EE</td><td>Bandas sonoras</td><td>Arreglos de temas de películas adecuados al nivel</td><td><Badge type="hold">DESARROLLO PROPIO</Badge></td></tr>
+          <tr><td>4º EE</td><td>Arreglos para ensemble</td><td>Arreglos de obras del repertorio clásico y romántico</td><td><Badge type="hold">DESARROLLO PROPIO</Badge></td></tr>
+          <tr><td>4º EE</td><td>Repertorio variado</td><td>Obras originales para agrupación instrumental de nivel medio</td><td><Badge type="hold">DESARROLLO PROPIO</Badge></td></tr>
+          <tr><td>4º EE</td><td>Música popular</td><td>Arreglos de música popular y tradicional extremeña</td><td><Badge type="hold">DESARROLLO PROPIO</Badge></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Atención a la Diversidad</h3>
+      <ul>
+        <li><strong>Adaptación de partes:</strong> se pueden simplificar las partes de los instrumentos más difíciles o duplicar las voces para reforzar secciones débiles.</li>
+        <li><strong>Repertorio flexible:</strong> elección de obras que permitan diferentes niveles de dificultad dentro del mismo conjunto.</li>
+        <li><strong>Agrupamientos flexibles:</strong> posibilidad de formar subgrupos por niveles dentro de la agrupación general.</li>
+        <li><strong>Refuerzo individual:</strong> apoyo específico fuera del horario de conjunto para alumnado con dificultades.</li>
+      </ul>
+
+      <h3>Coordinación con el Aula de Instrumento</h3>
+      <p>El profesor/a de instrumento y el profesor/a de la Bandita deben coordinarse para:</p>
+      <ul>
+        <li>Seleccionar repertorio que complemente el trabajo individual.</li>
+        <li>Reforzar contenidos comunes (ritmo, afinación, lectura).</li>
+        <li>Compartir información sobre el progreso del alumnado.</li>
+        <li>Coordinar calendarios de ensayos y actuaciones.</li>
+      </ul>
+
+      <h3>Actuaciones Públicas</h3>
+      <p>La Bandita debe participar a lo largo del curso en:</p>
+      <ul>
+        <li><strong>Audición de Navidad:</strong> programa de villancicos y obras festivas.</li>
+        <li><strong>Audición de fin de curso:</strong> programa variado con obras trabajadas durante el año.</li>
+        <li><strong>Actos institucionales:</strong> participación en actos del centro o de la localidad (cuando sea oportuno).</li>
+        <li><strong>Conciertos didácticos:</strong> posibilidad de ofrecer conciertos explicados en otros centros educativos.</li>
+      </ul>
+
+      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+        <h4 className="text-amber-900 font-semibold mb-2">Nota sobre la estructura del documento</h4>
+        <p className="text-sm">Este Anexo II se incorpora después del Anexo de Diagnóstico de Evaluación, tal como se establece en las programaciones nuevas. Corresponde al anterior Anexo III de la estructura original, renumerado como Anexo II para mantener la coherencia de la secuencia documental.</p>
       </div>
     </div>
   );

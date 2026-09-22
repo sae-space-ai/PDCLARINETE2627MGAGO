@@ -111,7 +111,7 @@ export const objetivosPorCurso: Record<string, Objetivo[]> = {
     { id: 'OBJ-CL-EE2-06', texto: 'Leer a primera vista fragmentos muy sencillos', tipo: 'interpretativo', trazabilidad: 'Art. 3.b (adaptado EE)', indicador: 'Lee fragmentos de 8 compases en Do M sin detenerse', estado: 'DESARROLLO_PROPIO' },
     { id: 'OBJ-CL-EE2-07', texto: 'Interpretar obras sencillas con carácter y estilo básico', tipo: 'interpretativo', trazabilidad: 'Art. 3.k (adaptado EE)', indicador: 'Interpreta melodías populares con carácter adecuado', estado: 'DESARROLLO_PROPIO' },
     { id: 'OBJ-CL-EE2-08', texto: 'Desarrollar hábitos de estudio diario (20-30 min)', tipo: 'actitudinal', trazabilidad: 'Art. 3.a (adaptado EE)', indicador: 'Practica diariamente con uso de metrónomo', estado: 'DESARROLLO_PROPIO' },
-    { id: 'OBJ-CL-EE2-09', texto: 'Participar en pequeñas agrupaciones (dúos sencillos)', tipo: 'actitudinal', trazabilidad: 'Art. 3.e (adaptado EE)', indicador: 'Interpreta dúos sencillos manteniendo el pulso con el compañero', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EE2-09', texto: 'Participar en audiciones de aula con respeto al turno y escucha activa', tipo: 'actitudinal', trazabilidad: 'Art. 3.e (adaptado EE)', indicador: 'Escucha activamente a compañeros y participa en audiciones trimestrales', estado: 'DESARROLLO_PROPIO' },
     { id: 'OBJ-CL-EE2-10', texto: 'Conocer los compositores clásicos fundamentales (Mozart)', tipo: 'actitudinal', trazabilidad: 'Art. 3.b (adaptado EE)', indicador: 'Sitúa a Mozart en el Clasicismo y conoce su relación con el clarinete', estado: 'DESARROLLO_PROPIO' },
   ],
   'EE3': [
@@ -122,7 +122,7 @@ export const objetivosPorCurso: Record<string, Objetivo[]> = {
     { id: 'OBJ-CL-EE3-05', texto: 'Interpretar estudios de nivel medio con fluidez', tipo: 'interpretativo', trazabilidad: 'Art. 3.k (adaptado EE)', indicador: 'Interpreta estudios de Gambaro/Klosé con musicalidad', estado: 'DESARROLLO_PROPIO' },
     { id: 'OBJ-CL-EE3-06', texto: 'Aplicar fraseo expresivo con dirección musical', tipo: 'interpretativo', trazabilidad: 'Art. 3.k (adaptado EE)', indicador: 'Construye frases con crescendo, dirección y respiración', estado: 'DESARROLLO_PROPIO' },
     { id: 'OBJ-CL-EE3-07', texto: 'Iniciar la transposición de fragmentos sencillos', tipo: 'interpretativo', trazabilidad: 'Art. 3.j (adaptado EE)', indicador: 'Transpone melodías de Do a Sol y viceversa', estado: 'DESARROLLO_PROPIO' },
-    { id: 'OBJ-CL-EE3-08', texto: 'Participar en ensambles de clarinetes del centro', tipo: 'actitudinal', trazabilidad: 'Art. 3.e (adaptado EE)', indicador: 'Participa en el ensemble de clarinetes con compromiso', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EE3-08', texto: 'Participar en actividades complementarias del centro (audiciones, conciertos)', tipo: 'actitudinal', trazabilidad: 'Art. 3.e (adaptado EE)', indicador: 'Participa activamente en audiciones y conciertos del centro', estado: 'DESARROLLO_PROPIO' },
     { id: 'OBJ-CL-EE3-09', texto: 'Desarrollar autonomía en el estudio (30-40 min/día)', tipo: 'actitudinal', trazabilidad: 'Art. 3.a (adaptado EE)', indicador: 'Planifica su semana de estudio con objetivos concretos', estado: 'DESARROLLO_PROPIO' },
     { id: 'OBJ-CL-EE3-10', texto: 'Conocer el repertorio romántico para clarinete', tipo: 'actitudinal', trazabilidad: 'Art. 3.b (adaptado EE)', indicador: 'Identifica obras de Weber, Spohr y Mendelssohn para clarinete', estado: 'DESARROLLO_PROPIO' },
   ],
@@ -186,7 +186,7 @@ export const rubricasGenerales: Rubrica[] = [
       { nombre: 'Articulación', niveles: ['Articulación doble no ejecutable', 'Doble articulación a tempo lento', 'Doble articulación a ♩=72 con igualdad', 'Doble articulación a ♩=80 con limpieza'] },
       { nombre: 'Escalas', niveles: ['Escalas incompletas', 'Escalas hasta 2 alteraciones', 'Escalas hasta 3 alteraciones de memoria', 'Escalas hasta 3 alteraciones con fluidez y afinación'] },
       { nombre: 'Interpretación', niveles: ['Sin carácter estilístico', 'Carácter básico', 'Estilo adecuado a la obra', 'Estilo convincente y personal'] },
-      { nombre: 'Actitud y hábitos', niveles: ['No participa en ensemble', 'Participación pasiva', 'Participación activa y comprometida', 'Liderazgo en agrupaciones'] },
+      { nombre: 'Actitud y hábitos', niveles: ['Participación pasiva en actividades del centro', 'Participación correcta en audiciones', 'Participación activa y comprometida', 'Liderazgo e iniciativa en actividades musicales'] },
     ]
   },
   {
@@ -280,10 +280,6 @@ export const repertorio: RepertorioItem[] = [
   { titulo: 'Sonata para clarinete y piano', autor: 'Poulenc', tipo: 'camara', curso: 'EP4', funcion: 'Neoclasicismo francés', estado: 'DESARROLLO_PROPIO' },
   { titulo: 'Quinteto para clarinete', autor: 'Nielsen', tipo: 'camara', curso: 'EP5', funcion: 'Repertorio nórdico s.XX', estado: 'DESARROLLO_PROPIO' },
   { titulo: 'Historia del Soldado (suite)', autor: 'Stravinsky', tipo: 'camara', curso: 'EP6', funcion: 'Contemporáneo', estado: 'DESARROLLO_PROPIO' },
-  { titulo: 'Dúos sencillos', autor: 'Klosé', tipo: 'camara', curso: 'EE1', funcion: 'Primer contacto con ensemble', estado: 'DESARROLLO_PROPIO' },
-  { titulo: 'Dúos progresivos', autor: 'Lefèvre', tipo: 'camara', curso: 'EE2', funcion: 'Desarrollo de la escucha conjunta', estado: 'DESARROLLO_PROPIO' },
-  { titulo: 'Dúos concertantes (selección)', autor: 'Baermann', tipo: 'camara', curso: 'EE3', funcion: 'Interacción musical', estado: 'DESARROLLO_PROPIO' },
-  { titulo: 'Trío de clarinetes (arreglos)', autor: 'Varios', tipo: 'camara', curso: 'EE4', funcion: 'Preparación para EP', estado: 'DESARROLLO_PROPIO' },
   { titulo: 'Grand Duo Concertante op. 48', autor: 'Weber', tipo: 'camara', curso: 'EP1', funcion: 'Repertorio romántico', estado: 'DESARROLLO_PROPIO' },
   { titulo: 'Fantasiestücke op. 73', autor: 'Schumann', tipo: 'camara', curso: 'EP1', funcion: 'Romanticismo (versión clarinete-piano)', estado: 'DESARROLLO_PROPIO' },
 ];
