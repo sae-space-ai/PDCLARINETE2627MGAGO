@@ -15,6 +15,7 @@ const sections = [
   { id: 'repertorio', title: 'Repertorio', icon: 'fa-music', group: 'Recursos' },
   { id: 'metodologia', title: 'Metodología', icon: 'fa-users', group: 'Recursos' },
   { id: 'anexo-ii', title: 'Anexo II — Bandita (3º y 4º EE)', icon: 'fa-users-cog', group: 'Anexos' },
+  { id: 'documento-completo', title: 'Documento Completo (30 apartados)', icon: 'fa-file-alt', group: 'Documentación' },
   { id: 'trazabilidad', title: 'Trazabilidad Normativa', icon: 'fa-link', group: 'Documentación' },
   { id: 'despliegue', title: 'Despliegue Web', icon: 'fa-globe', group: 'Documentación' },
 ];
@@ -100,6 +101,7 @@ function App() {
           {active === 'repertorio' && <Repertorio />}
           {active === 'metodologia' && <Metodologia />}
           {active === 'anexo-ii' && <AnexoII />}
+          {active === 'documento-completo' && <DocumentoCompleto />}
           {active === 'trazabilidad' && <Trazabilidad />}
           {active === 'despliegue' && <Despliegue />}
         </div>
@@ -981,6 +983,160 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4`}</pre>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// DOCUMENTO COMPLETO (30 APARTADOS)
+// ============================================================
+function DocumentoCompleto() {
+  return (
+    <div className="content-section">
+      <h2>Programación Didáctica Completa — 30 Apartados</h2>
+      <p className="text-sm text-gray-600 mb-6">Documento completo de la Programación Didáctica de Clarinete 2026/2027 para Enseñanzas Elementales y Profesionales de Música en Extremadura.</p>
+      
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        <p className="text-sm"><strong>Archivos disponibles:</strong></p>
+        <ul className="text-sm mt-2 space-y-1">
+          <li>• <code className="bg-blue-100 px-2 py-0.5 rounded">PROGRAMACION_DIDACTICA_COMPLETA.md</code> — Apartados 1-7 (Identificación, Normativa, Finalidades, Principios, Competencias, Objetivos, Contenidos)</li>
+          <li>• <code className="bg-blue-100 px-2 py-0.5 rounded">PROGRAMACION_RESTO.md</code> — Apartados 8-30 (Desarrollo de Contenidos, Metodología, Actividades, Unidades, Evaluación, Rúbricas, Anexos, etc.)</li>
+        </ul>
+      </div>
+
+      <h3>Estructura del Documento Completo</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+        {[
+          { num: '1', title: 'Identificación y Contextualización', sub: '1.1-1.12' },
+          { num: '2', title: 'Marco Normativo', sub: '2.1-2.11' },
+          { num: '3', title: 'Finalidades Educativas', sub: '3.1-3.10' },
+          { num: '4', title: 'Principios Pedagógicos', sub: '4.1-4.16' },
+          { num: '5', title: 'Competencias / Capacidades', sub: '5.1-5.20' },
+          { num: '6', title: 'Objetivos', sub: '6.1-6.18' },
+          { num: '7', title: 'Contenidos', sub: '7.1-7.36' },
+          { num: '8', title: 'Desarrollo de Contenidos', sub: '8.1-8.10' },
+          { num: '9', title: 'Metodología', sub: '9.1-9.18' },
+          { num: '10', title: 'Actividades', sub: '10.1-10.10' },
+          { num: '11', title: 'Unidades Didácticas', sub: '11.1-11.10' },
+          { num: '12', title: 'Secuenciación y Temporalización', sub: '12.1-12.16' },
+          { num: '13', title: 'Repertorio', sub: '13.1-13.12' },
+          { num: '14', title: 'Evaluación', sub: '14.1-14.16' },
+          { num: '15', title: 'Criterios de Evaluación', sub: '15.1-15.13' },
+          { num: '16', title: 'Instrumentos de Evaluación', sub: '16 fichas completas' },
+          { num: '17', title: 'Evidencias', sub: '17.1-17.12' },
+          { num: '18', title: 'Calificación', sub: '18.1-18.10' },
+          { num: '19', title: 'Recuperación y Refuerzo', sub: '19.1-19.10' },
+          { num: '20', title: 'Atención a la Diversidad', sub: '20.1-20.10' },
+          { num: '21', title: 'Recursos', sub: '21.1-21.14' },
+          { num: '22', title: 'Coordinación Docente', sub: '22.1-22.12' },
+          { num: '23', title: 'Actividades Complementarias', sub: '23.1-23.10' },
+          { num: '24', title: 'Evaluación de la Programación', sub: '24.1-24.12' },
+          { num: '25', title: 'Trazabilidad Curricular', sub: '25.1-25.10' },
+          { num: '26', title: 'Rúbricas', sub: '26.1-26.22' },
+          { num: '27', title: 'Anexos', sub: '27.1-27.14' },
+          { num: '28', title: 'Control de Calidad', sub: 'CHECK-001 a CHECK-017' },
+          { num: '29', title: 'Fuentes Normativas', sub: '29.1-29.10' },
+          { num: '30', title: 'Pendientes de Validación', sub: '30.1-30.10' },
+        ].map(item => (
+          <div key={item.num} className="bg-white rounded-lg border border-amber-200 p-3 shadow-sm">
+            <div className="flex items-center gap-2">
+              <span className="bg-amber-800 text-white text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">{item.num}</span>
+              <div>
+                <h4 className="font-semibold text-amber-900 text-sm">{item.title}</h4>
+                <p className="text-xs text-gray-500">{item.sub}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 className="mt-8">Matriz Maestra de Progresión</h3>
+      <div className="overflow-x-auto">
+        <table className="doc-table text-xs">
+          <thead>
+            <tr>
+              <th>Dimensión</th>
+              <th>EE Inicial</th>
+              <th>EE Final</th>
+              <th>EP 1º-2º</th>
+              <th>EP 3º-4º</th>
+              <th>EP 5º-6º</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td className="font-semibold">Postura</td><td>Iniciación</td><td>Consolidada</td><td>Refinada</td><td>Avanzada</td><td>Profesional</td></tr>
+            <tr><td className="font-semibold">Respiración</td><td>Básica</td><td>Controlada</td><td>Eficiente</td><td>Avanzada</td><td>Dominio total</td></tr>
+            <tr><td className="font-semibold">Embocadura</td><td>Formación</td><td>Estable</td><td>Flexible</td><td>Controlada</td><td>Dominio total</td></tr>
+            <tr><td className="font-semibold">Emisión</td><td>Primer sonido</td><td>Estable</td><td>Controlada</td><td>Variada</td><td>Personal</td></tr>
+            <tr><td className="font-semibold">Sonido</td><td>Grave</td><td>2 registros</td><td>Homogéneo</td><td>Personal</td><td>Maestro</td></tr>
+            <tr><td className="font-semibold">Afinación</td><td>Con ayuda</td><td>Autónoma</td><td>Precisa</td><td>Excelente</td><td>Perfecta</td></tr>
+            <tr><td className="font-semibold">Digitación</td><td>Básica</td><td>Completa</td><td>Ágil</td><td>Veloz</td><td>Virtuosística</td></tr>
+            <tr><td className="font-semibold">Articulación</td><td>Simple</td><td>Simple+</td><td>Doble</td><td>Doble+Triple</td><td>Todas</td></tr>
+            <tr><td className="font-semibold">Escalas</td><td>1 tonalidad</td><td>4 alterac.</td><td>7 alterac.</td><td>3 octavas</td><td>Completas</td></tr>
+            <tr><td className="font-semibold">Arpegios</td><td>Tónica</td><td>4 alterac.</td><td>7ª dim.</td><td>3 octavas</td><td>Completos</td></tr>
+            <tr><td className="font-semibold">Flexibilidad</td><td>Básica</td><td>Passaggio</td><td>Registros</td><td>Avanzada</td><td>Total</td></tr>
+            <tr><td className="font-semibold">Registro</td><td>Chalumeau</td><td>Chal+Clar</td><td>+Altissimo</td><td>3 octavas</td><td>Completo</td></tr>
+            <tr><td className="font-semibold">Lectura</td><td>Básica</td><td>Fluida</td><td>Avanzada</td><td>Compleja</td><td>Total</td></tr>
+            <tr><td className="font-semibold">Primera vista</td><td>Básica</td><td>Media</td><td>Avanzada</td><td>Compleja</td><td>Experta</td></tr>
+            <tr><td className="font-semibold">Memoria</td><td>Fragmentos</td><td>Obras</td><td>Obras completas</td><td>Programas</td><td>Recitales</td></tr>
+            <tr><td className="font-semibold">Análisis</td><td>Básico</td><td>Formal</td><td>Armónico</td><td>Comparativo</td><td>Profundo</td></tr>
+            <tr><td className="font-semibold">Fraseo</td><td>Básico</td><td>Con carácter</td><td>Expresivo</td><td>Personal</td><td>Maduro</td></tr>
+            <tr><td className="font-semibold">Expresión</td><td>Inicial</td><td>Con carácter</td><td>Estilística</td><td>Personal</td><td>Artística</td></tr>
+            <tr><td className="font-semibold">Repertorio</td><td>Sencillo</td><td>Medio</td><td>Avanzado</td><td>Exigente</td><td>Máximo</td></tr>
+            <tr><td className="font-semibold">Autonomía</td><td>Inicial</td><td>Creciente</td><td>Avanzada</td><td>Total</td><td>Profesional</td></tr>
+            <tr><td className="font-semibold">Interpretación</td><td>Aula</td><td>Audiciones</td><td>Recitales</td><td>Conciertos</td><td>Profesional</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 className="mt-8">Auditoría Final</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {[
+          { id: '01', title: 'Integridad de los 30 apartados', status: 'COMPLETA' },
+          { id: '02', title: 'Integridad de subapartados', status: 'COMPLETA' },
+          { id: '03', title: 'Ausencia de normativa inventada', status: 'VERIFICADA' },
+          { id: '04', title: 'Ausencia de porcentajes inventados', status: 'VERIFICADA' },
+          { id: '05', title: 'Ausencia de repertorio oficial sin evidencia', status: 'VERIFICADA' },
+          { id: '06', title: 'Coherencia Elementales', status: 'VERIFICADA' },
+          { id: '07', title: 'Coherencia Profesionales', status: 'VERIFICADA' },
+          { id: '08', title: 'Progresión instrumental', status: 'COHERENTE' },
+          { id: '09', title: 'Progresión técnica', status: 'COHERENTE' },
+          { id: '10', title: 'Progresión musical', status: 'COHERENTE' },
+          { id: '11', title: 'Progresión interpretativa', status: 'COHERENTE' },
+          { id: '12', title: 'Progresión de autonomía', status: 'COHERENTE' },
+          { id: '13', title: 'Trazabilidad curricular', status: 'COMPLETA' },
+          { id: '14', title: 'Evidencias', status: 'TRAZADAS' },
+          { id: '15', title: 'Instrumentos', status: 'TRAZADOS' },
+          { id: '16', title: 'Rúbricas', status: 'COMPLETAS' },
+          { id: '17', title: 'Unidades', status: 'DESARROLLADAS' },
+          { id: '18', title: 'Repertorio', status: 'CATALOGADO' },
+          { id: '19', title: 'Evaluación', status: 'COMPLETA' },
+          { id: '20', title: 'HOLD', status: 'REGISTRADOS' },
+        ].map(audit => (
+          <div key={audit.id} className="bg-emerald-50 rounded-lg border border-emerald-200 p-3">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-xs text-emerald-600 font-mono">AUD-{audit.id}</span>
+                <p className="text-sm font-medium text-emerald-900">{audit.title}</p>
+              </div>
+              <Badge type="verified">{audit.status}</Badge>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
+        <h4 className="text-amber-900 font-semibold mb-2">Estado Final del Documento</h4>
+        <ul className="text-sm space-y-1 text-amber-800">
+          <li>• <strong>30 apartados</strong> desarrollados con todos sus subapartados</li>
+          <li>• <strong>Matriz maestra de progresión</strong> con 21 dimensiones × 5 niveles</li>
+          <li>• <strong>20 auditorías</strong> superadas</li>
+          <li>• <strong>5 elementos HOLD</strong> registrados y pendientes de validación</li>
+          <li>• <strong>Sin invenciones</strong> normativas, porcentajes ni repertorio obligatorio</li>
+          <li>• <strong>Trazabilidad completa</strong> desde la norma hasta la rúbrica</li>
+          <li>• <strong>Diferenciación clara</strong> entre Enseñanzas Elementales y Profesionales</li>
+        </ul>
       </div>
     </div>
   );
