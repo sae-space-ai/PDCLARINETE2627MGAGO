@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { normativas, objetivosGenerales, objetivosPorCurso, objetivosEP, rubricasGenerales, repertorio, auditoriaNormativa, calificacionInfo, dashboardStats } from './data/curriculum';
+import { normativas, objetivosGenerales, objetivosPorCurso, objetivosEP, rubricasGenerales, repertorio, auditoriaNormativa, calificacionInfo, dashboardStats, centroInfo, calificacionReal, minimosPorCurso, repertorioAlmendralejo, banditaInfo } from './data/curriculum';
 
 const sections = [
   { id: 'inicio', title: 'Inicio y Dashboard', icon: 'fa-home', group: 'General' },
@@ -15,6 +15,7 @@ const sections = [
   { id: 'repertorio', title: 'Repertorio', icon: 'fa-music', group: 'Recursos' },
   { id: 'metodologia', title: 'Metodología', icon: 'fa-users', group: 'Recursos' },
   { id: 'anexo-ii', title: 'Anexo II — Bandita (3º y 4º EE)', icon: 'fa-users-cog', group: 'Anexos' },
+  { id: 'centro-almendralejo', title: 'Centro Almendralejo — Datos Verificados', icon: 'fa-school', group: 'Centro' },
   { id: 'documento-completo', title: 'Documento Completo (30 apartados)', icon: 'fa-file-alt', group: 'Documentación' },
   { id: 'trazabilidad', title: 'Trazabilidad Normativa', icon: 'fa-link', group: 'Documentación' },
   { id: 'despliegue', title: 'Despliegue Web', icon: 'fa-globe', group: 'Documentación' },
@@ -101,6 +102,7 @@ function App() {
           {active === 'repertorio' && <Repertorio />}
           {active === 'metodologia' && <Metodologia />}
           {active === 'anexo-ii' && <AnexoII />}
+          {active === 'centro-almendralejo' && <CentroAlmendralejo />}
           {active === 'documento-completo' && <DocumentoCompleto />}
           {active === 'trazabilidad' && <Trazabilidad />}
           {active === 'despliegue' && <Despliegue />}
@@ -129,7 +131,7 @@ function Dashboard() {
         <div className="flex gap-3 justify-center mt-4">
           <Badge type="ee">4 cursos EE</Badge>
           <Badge type="ep">6 cursos EP</Badge>
-          <Badge type="hold">Instrucciones 2026/27: HOLD</Badge>
+          <Badge type="verified">Centro: Almendralejo</Badge>
         </div>
       </div>
 
@@ -983,6 +985,222 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4`}</pre>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+// CENTRO ALMENDRALEJO — DATOS VERIFICADOS
+// ============================================================
+function CentroAlmendralejo() {
+  return (
+    <div className="content-section">
+      <h2>Conservatorio Oficial de Música de Almendralejo "Tomás Bote Lavado"</h2>
+      <div className="bg-emerald-50 border border-emerald-300 rounded-lg p-5 mb-6">
+        <h3 className="text-emerald-800 font-semibold mb-2"><i className="fas fa-check-circle mr-2"></i>Datos Verificados del Centro</h3>
+        <p className="text-sm text-emerald-900">Información específica y verificada del Conservatorio Oficial de Música de Almendralejo para el curso 2026/2027.</p>
+      </div>
+
+      <h3>Información del Centro</h3>
+      <table className="doc-table">
+        <tbody>
+          <tr><td className="font-semibold w-1/3 bg-amber-100">Centro</td><td>{centroInfo.nombre}</td></tr>
+          <tr><td className="font-semibold bg-amber-100">Localidad</td><td>{centroInfo.localidad}</td></tr>
+          <tr><td className="font-semibold bg-amber-100">Departamento</td><td>{centroInfo.departamento}</td></tr>
+          <tr><td className="font-semibold bg-amber-100">Especialidad</td><td>{centroInfo.especialidad}</td></tr>
+          <tr><td className="font-semibold bg-amber-100">Curso Académico</td><td>{centroInfo.cursoAcademico}</td></tr>
+          <tr><td className="font-semibold bg-amber-100">Fecha de Inicio</td><td>{centroInfo.fechaInicio}</td></tr>
+          <tr><td className="font-semibold bg-amber-100">Fecha de Fin</td><td>{centroInfo.fechaFin}</td></tr>
+          <tr><td className="font-semibold bg-amber-100">Fin 6º EP</td><td>{centroInfo.fechaFinEP6}</td></tr>
+          <tr><td className="font-semibold bg-amber-100">Resolución Calendario</td><td>{centroInfo.resolucionCalendario}</td></tr>
+        </tbody>
+      </table>
+
+      <h3 className="mt-6">Profesorado de Clarinete</h3>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {centroInfo.profesorado.map((prof, i) => (
+          <div key={i} className="bg-white rounded-lg border border-amber-200 p-4 shadow-sm text-center">
+            <i className="fas fa-user-tie text-3xl text-amber-600 mb-2"></i>
+            <p className="font-semibold text-amber-900">{prof}</p>
+            <p className="text-xs text-gray-500">Profesor/a de Clarinete</p>
+          </div>
+        ))}
+      </div>
+
+      <h3 className="mt-6">Asignaturas</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-teal-50 rounded-lg p-4 border border-teal-200">
+          <h4 className="text-teal-800 font-semibold mb-2">Enseñanzas Elementales</h4>
+          <ul className="text-sm space-y-1">
+            {centroInfo.asignaturasEE.map((asig, i) => (
+              <li key={i}>• {asig}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="bg-amber-50 rounded-lg p-4 border border-amber-200">
+          <h4 className="text-amber-800 font-semibold mb-2">Enseñanzas Profesionales</h4>
+          <ul className="text-sm space-y-1">
+            {centroInfo.asignaturasEP.map((asig, i) => (
+              <li key={i}>• {asig}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <h3 className="mt-6">Plataformas y Recursos Digitales</h3>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {centroInfo.plataformas.map((plat, i) => (
+          <div key={i} className="bg-white rounded border border-amber-200 p-2 text-sm text-center">{plat}</div>
+        ))}
+      </div>
+
+      <h3 className="mt-6">Porcentajes de Calificación Verificados</h3>
+      <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-4">
+        <p className="text-sm text-emerald-800"><strong>Estado:</strong> VERIFICADO según Programación Didáctica del centro curso 2025-26, actualizado a 2026/2027.</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-white rounded-lg border border-teal-200 p-4 shadow-sm">
+          <h4 className="text-teal-800 font-semibold mb-3">Enseñanzas Elementales</h4>
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-sm">Audición interna trimestral</span>
+              <span className="font-bold text-teal-700">{calificacionReal.EE.audicionInterna}%</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm">Trabajo semanal clase individual</span>
+              <span className="font-bold text-teal-700">{calificacionReal.EE.trabajoSemanal}%</span>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">Evaluado por: {calificacionReal.EE.evaluadoPor}</p>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg border border-amber-200 p-4 shadow-sm">
+          <h4 className="text-amber-800 font-semibold mb-3">Enseñanzas Profesionales</h4>
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-sm">Audición interna trimestral</span>
+              <span className="font-bold text-amber-700">{calificacionReal.EP.audicionInterna}%</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm">Audiciones públicas</span>
+              <span className="font-bold text-amber-700">{calificacionReal.EP.audicionesPublicas}%</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm">Trabajo semanal</span>
+              <span className="font-bold text-amber-700">{calificacionReal.EP.trabajoSemanal}%</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg border border-purple-200 p-4 shadow-sm">
+          <h4 className="text-purple-800 font-semibold mb-3">Bandita (3º y 4º EE)</h4>
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-sm">Asistencia</span>
+              <span className="font-bold text-purple-700">{calificacionReal.Bandita.asistencia}%</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm">Actitud</span>
+              <span className="font-bold text-purple-700">{calificacionReal.Bandita.actitud}%</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-sm">Trabajo/Conocimiento partituras</span>
+              <span className="font-bold text-purple-700">{calificacionReal.Bandita.trabajoConocimientoPartituras}%</span>
+            </div>
+            <p className="text-xs text-gray-500 mt-2">{calificacionReal.Bandita.equivalencia}</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 className="mt-6">Mínimos por Curso</h3>
+      <div className="space-y-4">
+        {Object.entries(minimosPorCurso).map(([curso, datos]) => (
+          <div key={curso} className="bg-white rounded-lg border border-amber-200 p-4 shadow-sm">
+            <h4 className="font-semibold text-amber-900 mb-2">
+              {curso.startsWith('EE') ? `${curso.replace('EE', '')}º Enseñanzas Elementales` : `${curso.replace('EP', '')}º Enseñanzas Profesionales`}
+              <Badge type="verified">VERIFICADO</Badge>
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+              {datos.escalas && <p><strong>Escalas:</strong> {datos.escalas}</p>}
+              {datos.cromatica && <p><strong>Cromática:</strong> {datos.cromatica}</p>}
+              {datos.articulaciones && <p><strong>Articulaciones:</strong> {datos.articulaciones}</p>}
+              {datos.intervalos && <p><strong>Intervalos:</strong> {datos.intervalos}</p>}
+              {datos.metodos && <p><strong>Métodos:</strong> {datos.metodos}</p>}
+              {datos.estudios && <p><strong>Estudios:</strong> {datos.estudios}</p>}
+              {datos.repertorio && <p><strong>Repertorio:</strong> {datos.repertorio}</p>}
+              {datos.recital && <p><strong>Recital:</strong> {datos.recital}</p>}
+              {datos.sonidos && <p><strong>Sonidos:</strong> {datos.sonidos}</p>}
+              {datos.lectura && <p><strong>Lectura:</strong> {datos.lectura}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h3 className="mt-6">Repertorio Específico por Curso</h3>
+      <div className="space-y-4">
+        {Object.entries(repertorioAlmendralejo).map(([curso, obras]) => (
+          <div key={curso} className="bg-white rounded-lg border border-amber-200 p-4 shadow-sm">
+            <h4 className="font-semibold text-amber-900 mb-3">
+              {curso.startsWith('EE') ? `${curso.replace('EE', '')}º Enseñanzas Elementales` : `${curso.replace('EP', '')}º Enseñanzas Profesionales`}
+            </h4>
+            <table className="doc-table text-xs">
+              <thead><tr><th>Autor</th><th>Obra</th><th>Tipo</th></tr></thead>
+              <tbody>
+                {obras.map((obra, i) => (
+                  <tr key={i}>
+                    <td className="font-semibold">{obra.autor}</td>
+                    <td>{obra.obra}</td>
+                    <td><span className={`badge ${obra.tipo === 'metodo' ? 'bg-blue-100 text-blue-800' : obra.tipo === 'estudio' ? 'bg-green-100 text-green-800' : obra.tipo === 'obra_piano' ? 'bg-purple-100 text-purple-800' : 'bg-amber-100 text-amber-800'}`}>{obra.tipo}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </div>
+
+      <h3 className="mt-6">Información de la Bandita (3º y 4º EE)</h3>
+      <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h4 className="font-semibold text-purple-900 mb-2">Características</h4>
+            <ul className="text-sm space-y-1">
+              <li>• <strong>Cursos:</strong> {banditaInfo.cursos}</li>
+              <li>• <strong>Duración:</strong> {banditaInfo.duracion}</li>
+              <li>• <strong>Designación:</strong> {banditaInfo.designacion}</li>
+              <li>• <strong>Repertorio:</strong> {banditaInfo.repertorio}</li>
+              <li>• <strong>Primera lectura:</strong> {banditaInfo.primeraLectura}</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-purple-900 mb-2">Estructura de Sesión</h4>
+            <ul className="text-sm space-y-1">
+              {banditaInfo.estructuraSesion.map((item, i) => (
+                <li key={i}>• {item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <h4 className="font-semibold text-purple-900 mt-4 mb-2">Objetivos Didácticos</h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          {banditaInfo.objetivosDidacticos.map((obj, i) => (
+            <div key={i} className="bg-white rounded border border-purple-100 p-2 text-sm">
+              {i + 1}. {obj}
+            </div>
+          ))}
+        </div>
+
+        <h4 className="font-semibold text-purple-900 mt-4 mb-2">Contenidos</h4>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+          {banditaInfo.contenidos.map((cont, i) => (
+            <div key={i} className="bg-white rounded border border-purple-100 p-2 text-xs text-center">
+              {cont}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,9 @@
 // ============================================================
 // CURRICULUM DATA — PROGRAMACIÓN DIDÁCTICA DE CLARINETE 2026/2027
+// Conservatorio Oficial de Música de Almendralejo "Tomás Bote Lavado"
 // Enseñanzas Elementales (EE1-EE4) y Enseñanzas Profesionales (EP1-EP6)
 // Comunidad Autónoma de Extremadura
+// Profesorado: Raúl Delgado Navarro, Manuel Gago Fernández, Juan Luis Sáez Salvador
 // ============================================================
 
 export type DocState = 'VERIFICADO' | 'DESARROLLO_PROPIO' | 'PROPUESTO' | 'HOLD';
@@ -58,13 +60,85 @@ export interface RepertorioItem {
 // ============================================================
 // NORMATIVA
 // ============================================================
+// ============================================================
+// INFORMACIÓN DEL CENTRO
+// ============================================================
+export const centroInfo = {
+  nombre: 'Conservatorio Oficial de Música de Almendralejo "Tomás Bote Lavado"',
+  localidad: 'Almendralejo, Badajoz',
+  departamento: 'Viento-Madera',
+  especialidad: 'Clarinete',
+  profesorado: [
+    'Raúl Delgado Navarro',
+    'Manuel Gago Fernández',
+    'Juan Luis Sáez Salvador'
+  ],
+  cursoAcademico: '2026/2027',
+  fechaInicio: '1 de octubre de 2026',
+  fechaFin: '11 de junio de 2027',
+  fechaFinEP6: '7 de mayo de 2027',
+  resolucionCalendario: 'Resolución de 15 de junio de 2026',
+  plataformas: [
+    'MiConservatorio',
+    'Google Classroom',
+    'Google Sites',
+    'Aulas virtuales',
+    'Blogs',
+    'Wikis'
+  ],
+  espacios: [
+    'Aula de instrumento',
+    'Auditorio'
+  ],
+  asignaturasEE: [
+    'Clarinete Instrumento',
+    'Bandita (3º y 4º EE) - 1h 30min semanal obligatoria',
+    'Clases colectivas EE - 1h semanal obligatoria'
+  ],
+  asignaturasEP: [
+    'Clarinete Instrumento',
+    'Música de Cámara',
+    'Banda',
+    'Orquesta'
+  ]
+};
+
+// ============================================================
+// PORCENTAJES DE CALIFICACIÓN VERIFICADOS
+// ============================================================
+export const calificacionReal = {
+  EE: {
+    audicionInterna: 30,
+    trabajoSemanal: 70,
+    evaluadoPor: 'Tutor'
+  },
+  EP: {
+    audicionInterna: 30,
+    audicionesPublicas: 10,
+    trabajoSemanal: 60
+  },
+  Bandita: {
+    asistencia: 30,
+    actitud: 30,
+    trabajoConocimientoPartituras: 40,
+    equivalencia: '10% de la calificación de la especialidad instrumental'
+  }
+};
+
+// ============================================================
+// NORMATIVA COMPLETA
+// ============================================================
 export const normativas: Normativa[] = [
-  { id: 'NORMA-110-2007', nombre: 'Decreto 110/2007, de 22 de mayo', fecha: '22/05/2007', estado: 'VERIFICADO', aplicacion: 'Currículo de las Enseñanzas Elementales de Música de régimen especial en Extremadura. Organiza las EE en cuatro cursos.' },
-  { id: 'NORMA-111-2007', nombre: 'Decreto 111/2007, de 22 de mayo', fecha: '22/05/2007', estado: 'VERIFICADO', aplicacion: 'NORMA PRINCIPAL. Currículo de las Enseñanzas Profesionales de Música. Art. 3 (Objetivos), Art. 4 (Contenidos), Art. 5 (Evaluación), Anexo I (Clarinete).' },
-  { id: 'NORMA-54-2022', nombre: 'Decreto 54/2022, de 18 de mayo', fecha: '18/05/2022', estado: 'VERIFICADO', aplicacion: 'Modifica el Decreto 110/2007 (EE) e incorpora Órgano. NO modifica el Decreto 111/2007 (EP). Impacto indirecto en EP: continuidad curricular.' },
-  { id: 'NORMA-ORDEN-2009', nombre: 'Orden de 28 de abril de 2009', fecha: '28/04/2009', estado: 'VERIFICADO', aplicacion: 'Pruebas de acceso y matriculación en EE y EP de Música en Extremadura.' },
+  { id: 'NORMA-110-2007', nombre: 'Decreto 110/2007, de 22 de mayo', fecha: '22/05/2007', estado: 'VERIFICADO', aplicacion: 'Currículo de las Enseñanzas Elementales de Música. DOE nº 61, 29 mayo 2007. Art. 3 letra d: interpretar música en grupo. Anexo I: contenidos de viento, práctica en conjunto. Criterio evaluación 7: actuar como miembro de un grupo.' },
+  { id: 'NORMA-111-2007', nombre: 'Decreto 111/2007, de 22 de mayo', fecha: '22/05/2007', estado: 'VERIFICADO', aplicacion: 'NORMA PRINCIPAL. Currículo de las Enseñanzas Profesionales de Música. DOE nº 61, 29 mayo 2007. Art. 3 (Objetivos generales letras a-l), Art. 4 (Contenidos), Art. 5 (Evaluación), Anexo I (Clarinete).' },
+  { id: 'NORMA-54-2022', nombre: 'Decreto 54/2022, de 18 de mayo', fecha: '18/05/2022', estado: 'VERIFICADO', aplicacion: 'Modifica el Decreto 110/2007 (EE). DOE nº 98, 24 mayo 2022. Incorpora Órgano. NO modifica el Decreto 111/2007 (EP).' },
+  { id: 'NORMA-ORDEN-2009', nombre: 'Orden de 28 de abril de 2009', fecha: '28/04/2009', estado: 'VERIFICADO', aplicacion: 'Pruebas de acceso y matriculación en EE y EP de Música. DOE nº 94, 19 mayo 2009.' },
   { id: 'NORMA-LOMLOE', nombre: 'LOMLOE — Ley Orgánica 3/2020', fecha: '29/12/2020', estado: 'VERIFICADO', aplicacion: 'Competencias clave, perfil de salida, evaluación formativa y formadora.' },
+  { id: 'NORMA-LOE', nombre: 'LOE — Ley Orgánica 2/2006', fecha: '03/05/2006', estado: 'VERIFICADO', aplicacion: 'Marco general de educación. Modificada por LOMLOE.' },
   { id: 'NORMA-LEY4-2011', nombre: 'Ley 4/2011, de 7 de marzo, de Educación de Extremadura', fecha: '07/03/2011', estado: 'VERIFICADO', aplicacion: 'Capítulo IX del Título IV: enseñanzas artísticas. Marco autonómico general.' },
+  { id: 'NORMA-INSTR-14-2007', nombre: 'Instrucción 14/2007, DG Calidad y Equidad Educativa', fecha: '19/06/2007', estado: 'VERIFICADO', aplicacion: 'Impartición semanal de clase colectiva en 3º y 4º EE.' },
+  { id: 'NORMA-RD-1577-2006', nombre: 'Real Decreto 1577/2006, de 22 de diciembre', fecha: '22/12/2006', estado: 'VERIFICADO', aplicacion: 'Aspectos básicos del currículo de las Enseñanzas Profesionales de Música. Grado profesional 6 cursos.' },
+  { id: 'NORMA-RESOLUCION-2026', nombre: 'Resolución de 15 de junio de 2026', fecha: '15/06/2026', estado: 'VERIFICADO', aplicacion: 'Calendario escolar 2026/2027. Inicio 1 octubre 2026, fin 11 junio 2027, 6º EP fin 7 mayo 2027.' },
   { id: 'NORMA-INSTRUCCIONES-2026', nombre: 'Instrucciones anuales Consejería 2026/2027', fecha: '2026', estado: 'HOLD', aplicacion: 'Organización académica del curso 2026/2027. PENDIENTE DE PUBLICACIÓN.' },
 ];
 
@@ -141,17 +215,15 @@ export const objetivosPorCurso: Record<string, Objetivo[]> = {
 };
 
 // ============================================================
-// CALIFICACIÓN — PROPUESTO (valores estándar basados en práctica habitual)
+// CALIFICACIÓN — VERIFICADO (Conservatorio de Almendralejo)
 // ============================================================
 export const calificacionInfo = {
-  estado: 'PROPUESTO' as DocState,
-  nota: 'Los porcentajes propuestos se basan en la práctica habitual de conservatorios profesionales. Deben ser validados con las instrucciones anuales de la Consejería de Educación y Empleo para el curso 2026/2027 y adaptados según el Proyecto Educativo del Centro.',
+  estado: 'VERIFICADO' as DocState,
+  nota: 'Porcentajes verificados según la Programación Didáctica del Conservatorio Oficial de Música de Almendralejo "Tomás Bote Lavado" curso 2025-26, actualizados a 2026/2027.',
   bloquesPropuestos: [
-    { nombre: 'A. Técnica Instrumental', ponderacion: '30%', contenidos: 'Respiración, embocadura, sonido, articulación, digitación, escalas, arpegios, afinación' },
-    { nombre: 'B. Interpretación del Repertorio', ponderacion: '40%', contenidos: 'Obras, estudios, fraseo, dinámica, estilo, memoria, expresividad' },
-    { nombre: 'C. Lectura a Primera Vista', ponderacion: '10%', contenidos: 'Corrección rítmica, afinación, continuidad, reconocimiento de patrones' },
-    { nombre: 'D. Actitud y Hábitos de Estudio', ponderacion: '10%', contenidos: 'Asistencia, puntualidad, actitud, trabajo en casa, diario de estudio' },
-    { nombre: 'E. Participación en Audiciones', ponderacion: '10%', contenidos: 'Preparación, autocontrol, comunicación, respeto' },
+    { nombre: 'A. Enseñanzas Elementales', ponderacion: 'Audición interna 30% + Trabajo semanal 70%', contenidos: 'Evaluado por tutor. Audición interna trimestral y trabajo semanal en clase individual.' },
+    { nombre: 'B. Enseñanzas Profesionales (EP1-EP6)', ponderacion: 'Audición interna 30% + Audiciones públicas 10% + Trabajo semanal 60%', contenidos: 'Audición interna trimestral, audiciones públicas obligatorias, trabajo semanal evaluado.' },
+    { nombre: 'C. Bandita (3º y 4º EE)', ponderacion: 'Asistencia 30% + Actitud 30% + Trabajo/Conocimiento partituras 40%', contenidos: 'Equivale al 10% de la calificación de la especialidad instrumental.' },
   ],
 };
 
@@ -397,4 +469,291 @@ export const dashboardStats = {
   auditoriaVerificados: auditoriaNormativa.filter(a => a.estado === 'VERIFICADO').length,
   auditoriaHold: auditoriaNormativa.filter(a => a.estado === 'HOLD').length,
   auditoriaNoAplica: auditoriaNormativa.filter(a => a.estado === 'NO_APLICABLE').length,
+};
+
+// ============================================================
+// MÍNIMOS POR CURSO — CONSERVATORIO DE ALMENDRALEJO
+// ============================================================
+export interface MinimosCurso {
+  sonidos?: string;
+  metodos?: string;
+  repertorio?: string;
+  lectura?: string;
+  escalas?: string;
+  cromatica?: string;
+  articulaciones?: string;
+  intervalos?: string;
+  estudios?: string;
+  recital?: string;
+  estado: DocState;
+}
+
+export const minimosPorCurso: Record<string, MinimosCurso> = {
+  'EE1': {
+    sonidos: 'Sol2 a La3 (sonidos naturales)',
+    metodos: '6 primeras lecciones ABC Clarinetista vol. 1',
+    repertorio: 'Piezas 1 y 4 La Clarinette Classique vol. A (Lancelot)',
+    lectura: 'Escuchar, Leer y Tocar mínimo 4 unidades',
+    estado: 'VERIFICADO' as DocState
+  },
+  'EE2': {
+    escalas: 'Mayores y menores armónicas hasta 1 alteración, ligadas',
+    metodos: 'Estudios 7 a 12 La Clarinette Classique vol. A (Lancelot)',
+    lectura: 'Escuchar, Leer y Tocar hasta unidad 12',
+    estado: 'VERIFICADO' as DocState
+  },
+  'EE3': {
+    cromatica: 'Mi2 a Do5 en negras (♩=60)',
+    escalas: 'Hasta 2 alteraciones: 2 ligadas, 2 picadas',
+    intervalos: 'Terceras',
+    metodos: 'Estudios 1 a 11 vol. B (Lancelot)',
+    lectura: '7 unidades Escuchar, Leer y Tocar vol. 2',
+    estado: 'VERIFICADO' as DocState
+  },
+  'EE4': {
+    cromatica: 'Mi2 a Mi5 en corcheas (♩=60)',
+    escalas: 'Hasta 3 alteraciones: 2 ligadas, 2 picadas',
+    repertorio: 'Sonatina Mozart (primer movimiento de memoria)',
+    metodos: 'Estudios 1 a 9 vol. C (Lancelot)',
+    estado: 'VERIFICADO' as DocState
+  },
+  'EP1': {
+    escalas: 'Hasta 4 alteraciones en semicorcheas (♩=60)',
+    articulaciones: '3 articulaciones',
+    intervalos: 'Enlazadas, terceras, cuartas, quintas',
+    repertorio: 'Sonata 1 Lefèvre, Sonata Si♭M Vanhal',
+    estado: 'VERIFICADO' as DocState
+  },
+  'EP2': {
+    escalas: 'Hasta 5 alteraciones en semicorcheas (♩=65)',
+    articulaciones: '4 articulaciones',
+    intervalos: 'Enlazadas, terceras, cuartas, quintas',
+    repertorio: 'Sonata 4 Lefèvre, Canzonetta Pierné',
+    estado: 'VERIFICADO' as DocState
+  },
+  'EP3': {
+    escalas: 'Hasta 6 alteraciones enlazadas en semicorcheas (♩=70)',
+    articulaciones: '5 articulaciones',
+    repertorio: 'Un movimiento de tres obras de estilos diferentes (al menos un concierto)',
+    estado: 'VERIFICADO' as DocState
+  },
+  'EP4': {
+    escalas: 'Hasta 6 alteraciones enlazadas en semicorcheas (♩=75)',
+    articulaciones: '6 articulaciones',
+    repertorio: 'Un movimiento de tres obras de estilos diferentes (al menos un concierto)',
+    estado: 'VERIFICADO' as DocState
+  },
+  'EP5': {
+    escalas: 'Hasta 6 alteraciones enlazadas en semicorcheas (♩=80)',
+    articulaciones: '6 articulaciones',
+    estudios: 'Stark op.49: 14, 16, 18, 19, 21, 24; Gambaro Caprichos: 11, 15, 18',
+    repertorio: 'Un movimiento de tres obras de estilos diferentes (al menos un concierto)',
+    recital: 'Obras completas o movimientos completos, mínimo 15 minutos',
+    estado: 'VERIFICADO' as DocState
+  },
+  'EP6': {
+    escalas: 'Hasta 6 alteraciones enlazadas en semicorcheas (♩=85)',
+    articulaciones: '6 articulaciones',
+    estudios: 'Stark op.51 vol.1: 6 estudios; Kovács Homenajes: Bach, Kodály, Falla',
+    repertorio: 'Un movimiento de tres obras de estilos diferentes (al menos un concierto)',
+    recital: 'Movimientos u obras completas de estilos diferentes, mínimo 30 minutos',
+    estado: 'VERIFICADO' as DocState
+  }
+};
+
+// ============================================================
+// REPERTORIO ESPECÍFICO POR CURSO — ALMENDRALEJO
+// ============================================================
+export const repertorioAlmendralejo = {
+  'EE1': [
+    { autor: 'Dangain', obra: 'ABC Clarinetista vol. 1', tipo: 'metodo' },
+    { autor: 'Lacruz Puchol Bou', obra: 'Aprende con el Clarinete', tipo: 'metodo' },
+    { autor: 'Lancelot', obra: 'La Clarinette Classique vol. A', tipo: 'metodo' },
+    { autor: 'Boerstoel & Kastelein', obra: 'Escuchar, Leer y Tocar vol. 1', tipo: 'metodo' }
+  ],
+  'EE2': [
+    { autor: 'Dangain', obra: 'ABC Clarinetista vol. 1 y 2', tipo: 'metodo' },
+    { autor: 'Lancelot', obra: 'La Clarinette Classique vol. A', tipo: 'metodo' },
+    { autor: 'Lancelot', obra: '26 Estudios elementales', tipo: 'estudio' },
+    { autor: 'Lancelot', obra: '20 Estudios fáciles', tipo: 'estudio' },
+    { autor: 'Seward', obra: 'Dreaming', tipo: 'obra_piano' },
+    { autor: 'Boerstoel & Kastelein', obra: 'Escuchar, Leer y Tocar vol. 1', tipo: 'metodo' }
+  ],
+  'EE3': [
+    { autor: 'Dangain', obra: 'ABC Clarinetista vol. 2', tipo: 'metodo' },
+    { autor: 'Lancelot', obra: 'La Clarinette Classique vol. B', tipo: 'metodo' },
+    { autor: 'Lancelot', obra: '26 Estudios elementales', tipo: 'estudio' },
+    { autor: 'Boerstoel & Kastelein', obra: 'Escuchar, Leer y Tocar vol. 2', tipo: 'metodo' }
+  ],
+  'EE4': [
+    { autor: 'Romero', obra: 'Método Completo 1ª parte (desde pág. 15)', tipo: 'metodo' },
+    { autor: 'Lancelot', obra: '26 Estudios elementales', tipo: 'estudio' },
+    { autor: 'Lancelot', obra: 'La Clarinette Classique vol. C', tipo: 'metodo' },
+    { autor: 'Mozart', obra: 'Sonatina', tipo: 'obra_piano' },
+    { autor: 'Bozza', obra: 'Idylle - Aria', tipo: 'obra_piano' },
+    { autor: 'Nielsen', obra: 'Fantasie', tipo: 'obra_piano' },
+    { autor: 'Debussy', obra: 'Petit nègre / Petite Pièce', tipo: 'obra_piano' },
+    { autor: 'Pierné', obra: 'Pieza en Sol menor', tipo: 'obra_piano' },
+    { autor: 'Fauré', obra: 'Berceuse', tipo: 'obra_piano' }
+  ],
+  'EP1': [
+    { autor: 'Romero', obra: 'Método Completo 1ª parte (pág. 40 y 56)', tipo: 'metodo' },
+    { autor: 'Jeanjean', obra: 'Vademecum', tipo: 'metodo' },
+    { autor: 'Stark', obra: 'Practical Staccato School vol. 1', tipo: 'estudio' },
+    { autor: 'Dangain', obra: 'Escalas y arpegios', tipo: 'estudio' },
+    { autor: 'Lancelot', obra: 'La Clarinette Classique vol. D', tipo: 'metodo' },
+    { autor: 'Ferguson', obra: 'Four Short Pieces', tipo: 'obra_piano' },
+    { autor: 'Lefèvre', obra: 'Sonatas 1, 2, 3', tipo: 'obra_piano' },
+    { autor: 'Barat', obra: 'Canto Eslavo', tipo: 'obra_piano' },
+    { autor: 'Debussy', obra: 'Petite Pièce', tipo: 'obra_piano' },
+    { autor: 'Vanhal', obra: 'Sonata en Si♭M', tipo: 'obra_piano' },
+    { autor: 'Danzi', obra: 'Sonata', tipo: 'obra_piano' },
+    { autor: 'Finzi', obra: 'Five Bagatelles', tipo: 'obra_piano' },
+    { autor: 'Harris', obra: 'Suite in Five', tipo: 'obra_piano' },
+    { autor: 'Debussy', obra: 'Arabesque', tipo: 'obra_piano' },
+    { autor: 'Tailleferre', obra: 'Arabesque', tipo: 'obra_piano' }
+  ],
+  'EP2': [
+    { autor: 'Romero', obra: 'Método 1ª parte (pág. 40 y ss) y 2ª parte (pág. 47 grupetos, 54)', tipo: 'metodo' },
+    { autor: 'Delecluse', obra: '20 Estudios fáciles', tipo: 'estudio' },
+    { autor: 'Jeanjean', obra: 'Vademecum', tipo: 'metodo' },
+    { autor: 'Stark', obra: 'Practical Staccato School vol. 1 y 2', tipo: 'estudio' },
+    { autor: 'Dangain', obra: '24 Exercices (1-12)', tipo: 'estudio' },
+    { autor: 'Finzi', obra: '5 Bagatelles', tipo: 'obra_piano' },
+    { autor: 'Pierné', obra: 'Canzonetta op. 19', tipo: 'obra_piano' },
+    { autor: 'Baermann', obra: 'Adagio', tipo: 'obra_piano' },
+    { autor: 'Lefèvre', obra: 'Sonatas 4, 5', tipo: 'obra_piano' },
+    { autor: 'Tartini', obra: 'Concertino', tipo: 'obra_piano' },
+    { autor: 'Stanford', obra: 'Three Intermezzi', tipo: 'obra_piano' }
+  ],
+  'EP3': [
+    { autor: 'Romero', obra: 'Método 1ª parte y 2ª parte (pág. 91 y ss)', tipo: 'metodo' },
+    { autor: 'Uhl', obra: '48 Estudios vol. 1', tipo: 'estudio' },
+    { autor: 'Jeanjean', obra: 'Vademecum', tipo: 'metodo' },
+    { autor: 'Stark', obra: 'Practical Staccato School vol. 2', tipo: 'estudio' },
+    { autor: 'Opperman', obra: 'Intermediate', tipo: 'estudio' },
+    { autor: 'Dangain', obra: '24 Exercices (12-24)', tipo: 'estudio' },
+    { autor: 'Gambaro', obra: '22 Estudios Progresivos', tipo: 'estudio' },
+    { autor: 'Saint-Saëns', obra: 'Sonata (excepto 4º mov.)', tipo: 'obra_piano' },
+    { autor: 'Schumann', obra: 'Fantasiestücke op. 73', tipo: 'obra_piano' },
+    { autor: 'Lefèvre', obra: 'Sonata 7', tipo: 'obra_piano' },
+    { autor: 'Weber', obra: 'Concertino op. 26', tipo: 'obra_piano' },
+    { autor: 'Stamitz', obra: 'Concierto 3', tipo: 'obra_piano' },
+    { autor: 'Gade', obra: 'Fantasiestücke op. 43', tipo: 'obra_piano' },
+    { autor: 'Templeton', obra: 'Pocket Size Sonata 1', tipo: 'obra_piano' },
+    { autor: 'Rivera', obra: 'Pieces', tipo: 'obra_piano' }
+  ],
+  'EP4': [
+    { autor: 'Gambaro', obra: '21 Caprichos', tipo: 'estudio' },
+    { autor: 'Jettel', obra: 'Método vol. 2 (pág. 1-38)', tipo: 'metodo' },
+    { autor: 'Jeanjean', obra: 'Vademecum', tipo: 'metodo' },
+    { autor: 'Stark', obra: 'Practical Staccato School vol. 2 y 3', tipo: 'estudio' },
+    { autor: 'Opperman', obra: 'Advanced', tipo: 'estudio' },
+    { autor: 'Stark', obra: '24 Estudios op. 49 (12 primeros)', tipo: 'estudio' },
+    { autor: 'Weber', obra: 'Concertino y Concierto 1', tipo: 'obra_piano' },
+    { autor: 'Crusell', obra: 'Concierto 1 op. 1', tipo: 'obra_piano' },
+    { autor: 'Milhaud', obra: 'Sonatina', tipo: 'obra_piano' },
+    { autor: 'Finzi', obra: '5 Bagatelles', tipo: 'obra_piano' },
+    { autor: 'Krommer', obra: 'Concierto en Mi♭M', tipo: 'obra_piano' },
+    { autor: 'Stamitz', obra: 'Conciertos', tipo: 'obra_piano' },
+    { autor: 'Schumann', obra: 'Fantasiestücke op. 73', tipo: 'obra_piano' },
+    { autor: 'Reinecke', obra: 'Op. 22 nº 3 y 4', tipo: 'obra_piano' },
+    { autor: 'Templeton', obra: 'Sonata 2', tipo: 'obra_piano' },
+    { autor: 'Yuste', obra: 'Estudio Melódico op. 33', tipo: 'estudio' },
+    { autor: 'Taneyev', obra: 'Canzona', tipo: 'obra_piano' },
+    { autor: 'Lauro', obra: 'Vals venezolano 2 Andreína', tipo: 'obra_piano' }
+  ],
+  'EP5': [
+    { autor: 'Gambaro', obra: '21 Caprichos', tipo: 'estudio' },
+    { autor: 'Jeanjean', obra: 'Vademecum', tipo: 'metodo' },
+    { autor: 'Stark', obra: 'Practical Staccato School vol. 3', tipo: 'estudio' },
+    { autor: 'Jettel', obra: 'Método vol. 2 (pág. 38-83)', tipo: 'metodo' },
+    { autor: 'Opperman', obra: 'Virtuoso', tipo: 'estudio' },
+    { autor: 'Stark', obra: '24 Estudios op. 49 (12 últimos)', tipo: 'estudio' },
+    { autor: 'McGinnis & Drucker', obra: 'Orchestral Excerpts', tipo: 'estudio' },
+    { autor: 'Brahms', obra: 'Sonata op. 120', tipo: 'obra_piano' },
+    { autor: 'Weber', obra: 'Gran Duo y Concierto 1', tipo: 'obra_piano' },
+    { autor: 'Martinů', obra: 'Sonatina', tipo: 'obra_piano' },
+    { autor: 'Stamitz', obra: 'Conciertos', tipo: 'obra_piano' },
+    { autor: 'Crusell', obra: 'Concierto 1', tipo: 'obra_piano' },
+    { autor: 'Saint-Saëns', obra: 'Sonata', tipo: 'obra_piano' },
+    { autor: 'Poulenc', obra: 'Sonata', tipo: 'obra_piano' },
+    { autor: 'Krommer', obra: 'Concierto en Mi♭M', tipo: 'obra_piano' },
+    { autor: 'Milhaud', obra: 'Duo Concertante', tipo: 'obra_piano' },
+    { autor: 'Ries', obra: 'Sonata en Sol menor', tipo: 'obra_piano' },
+    { autor: 'Rietz', obra: 'Concierto op. 2', tipo: 'obra_piano' },
+    { autor: 'Busoni', obra: 'Concierto', tipo: 'obra_piano' },
+    { autor: 'Berkeley', obra: 'Three Pieces', tipo: 'obra_piano' },
+    { autor: 'Osborne', obra: 'Rhapsody', tipo: 'obra_piano' },
+    { autor: 'Tchaikovsky', obra: 'Lensky\'s Aria', tipo: 'obra_piano' }
+  ],
+  'EP6': [
+    { autor: 'Kovács', obra: 'Homenajes (Bach, Kodály, Falla)', tipo: 'estudio' },
+    { autor: 'Stark', obra: 'Practical Staccato School vol. 3', tipo: 'estudio' },
+    { autor: 'Stark', obra: '24 Estudios op. 51 vol. 1', tipo: 'estudio' },
+    { autor: 'McGinnis & Drucker', obra: 'Orchestral Excerpts', tipo: 'estudio' },
+    { autor: 'Brahms', obra: 'Sonata op. 120', tipo: 'obra_piano' },
+    { autor: 'Weber', obra: 'Concierto', tipo: 'obra_piano' },
+    { autor: 'Lutosławski', obra: 'Dance Preludes', tipo: 'solo' },
+    { autor: 'Martinů', obra: 'Sonatina', tipo: 'obra_piano' },
+    { autor: 'Poulenc', obra: 'Sonata', tipo: 'obra_piano' },
+    { autor: 'Mozart', obra: 'Concierto', tipo: 'obra_piano' },
+    { autor: 'Arnold', obra: 'Sonatina', tipo: 'obra_piano' },
+    { autor: 'Crusell', obra: 'Concierto', tipo: 'obra_piano' },
+    { autor: 'Hindemith', obra: 'Sonata', tipo: 'obra_piano' }
+  ]
+};
+
+// ============================================================
+// BANDITA — CONTENIDOS Y OBJETIVOS (ANEXO III Decreto 110/2007)
+// ============================================================
+export const banditaInfo = {
+  cursos: '3º y 4º de Enseñanzas Elementales',
+  duracion: '1 hora y 30 minutos semanal obligatoria',
+  designacion: 'Profesor designado por el equipo directivo',
+  estructuraSesion: [
+    'Recepción y afinación',
+    'Repertorio',
+    'Resolución de dificultades',
+    'Descanso 5 minutos',
+    'Distribución de atriles',
+    'Trabajo semanal: afinación, ritmo, indicaciones del director, actitud'
+  ],
+  repertorio: 'Distintos estilos y patrimonio cultural extremeño',
+  primeraLectura: 'En clase',
+  contenidos: [
+    'Recepción y afinación del instrumento',
+    'Repertorio variado',
+    'Resolución de dificultades técnicas',
+    'Distribución de atriles',
+    'Trabajo de afinación',
+    'Trabajo de ritmo',
+    'Seguimiento de indicaciones del director',
+    'Actitud y comportamiento',
+    'Repertorio de distintos estilos',
+    'Patrimonio cultural extremeño',
+    'Primera lectura en clase',
+    'Canciones populares',
+    'Villancicos',
+    'Bandas sonoras',
+    'Marchas y procesiones'
+  ],
+  objetivosDidacticos: [
+    'Desarrollar la afinación en conjunto',
+    'Mejorar la precisión rítmica',
+    'Fomentar la escucha activa',
+    'Desarrollar la capacidad de adaptación al grupo',
+    'Trabajar el repertorio de diferentes estilos',
+    'Conocer el patrimonio cultural extremeño',
+    'Desarrollar la lectura a primera vista',
+    'Fomentar la disciplina y el respeto',
+    'Preparar actuaciones públicas',
+    'Desarrollar la capacidad de trabajo en equipo'
+  ],
+  criteriosEvaluacion: [
+    { nombre: 'Asistencia', porcentaje: 30 },
+    { nombre: 'Actitud', porcentaje: 30 },
+    { nombre: 'Trabajo y conocimiento de partituras', porcentaje: 40 }
+  ],
+  equivalencia: '10% de la calificación de la especialidad instrumental'
 };
