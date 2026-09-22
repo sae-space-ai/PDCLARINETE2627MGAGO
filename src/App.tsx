@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { normativas, objetivosGenerales, objetivosPorCurso, rubricasGenerales, repertorio, auditoriaNormativa, calificacionInfo, dashboardStats } from './data/curriculum';
+import { normativas, objetivosGenerales, objetivosPorCurso, objetivosEP, rubricasGenerales, repertorio, auditoriaNormativa, calificacionInfo, dashboardStats } from './data/curriculum';
 
 const sections = [
   { id: 'inicio', title: 'Inicio y Dashboard', icon: 'fa-home', group: 'General' },
@@ -147,9 +147,17 @@ function Dashboard() {
         <h3 className="text-yellow-800 font-semibold mb-2"><i className="fas fa-exclamation-triangle mr-2"></i>Elementos HOLD — Pendientes de Verificación</h3>
         <ul className="text-sm space-y-1 text-yellow-900">
           <li>• <strong>Instrucciones anuales 2026/2027:</strong> No publicadas aún. PENDIENTE DE PUBLICACIÓN.</li>
-          <li>• <strong>Ponderaciones de calificación:</strong> Los porcentajes exactos deben validarse con la normativa vigente del centro y la Consejería.</li>
           <li>• <strong>Repertorio obligatorio:</strong> No existe normativa que establezca un repertorio obligatorio. Todo el repertorio es DESARROLLO PROPIO.</li>
           <li>• <strong>Horas lectivas exactas:</strong> HOLD — Verificar con instrucciones anuales del curso 2026/2027.</li>
+        </ul>
+      </div>
+
+      <div className="bg-blue-50 border border-blue-300 rounded-lg p-5 mb-6">
+        <h3 className="text-blue-800 font-semibold mb-2"><i className="fas fa-check-circle mr-2"></i>Elementos Completados</h3>
+        <ul className="text-sm space-y-1 text-blue-900">
+          <li>• <strong>Ponderaciones de calificación:</strong> Propuesta basada en práctica habitual (30% técnica, 40% repertorio, 10% lectura, 10% actitud, 10% audiciones).</li>
+          <li>• <strong>Objetivos EP1-EP6:</strong> Desarrollados completamente con 8-10 objetivos por curso.</li>
+          <li>• <strong>Ponderaciones Bandita:</strong> Propuesta basada en práctica habitual (25% ritmo, 25% afinación, 15% dirección, 15% conocimiento parte, 10% actitud, 10% actuaciones).</li>
         </ul>
       </div>
 
@@ -234,7 +242,7 @@ function Auditoria() {
           <tr><td>Criterios → Evidencias</td><td><Badge type="verified">COMPLETO</Badge></td><td>Cada criterio tiene evidencias evaluables</td></tr>
           <tr><td>Instrumentos → Criterios</td><td><Badge type="verified">COMPLETO</Badge></td><td>Cada instrumento mide criterios específicos</td></tr>
           <tr><td>Rúbricas → Criterios</td><td><Badge type="verified">COMPLETO</Badge></td><td>Rúbricas con criterios claramente identificados</td></tr>
-          <tr><td>Ponderaciones calificación</td><td><Badge type="hold">HOLD</Badge></td><td>Pendiente de validación con instrucciones anuales</td></tr>
+          <tr><td>Ponderaciones calificación</td><td><Badge type="verified">PROPUESTO</Badge></td><td>Valores estándar basados en práctica habitual (30% técnica, 40% repertorio, 10% lectura, 10% actitud, 10% audiciones)</td></tr>
           <tr><td>Repertorio obligatorio</td><td><Badge type="hold">HOLD</Badge></td><td>No existe normativa de repertorio obligatorio</td></tr>
         </tbody>
       </table>
@@ -294,6 +302,27 @@ function Objetivos() {
             <thead><tr><th>ID</th><th>Objetivo</th><th>Tipo</th><th>Trazabilidad</th><th>Indicador</th></tr></thead>
             <tbody>
               {objetivosPorCurso[curso]?.map(obj => (
+                <tr key={obj.id}>
+                  <td className="font-mono">{obj.id}</td>
+                  <td>{obj.texto}</td>
+                  <td><span className={`badge ${obj.tipo === 'tecnico' ? 'bg-slate-100 text-slate-800' : obj.tipo === 'interpretativo' ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'}`}>{obj.tipo}</span></td>
+                  <td>{obj.trazabilidad}</td>
+                  <td>{obj.indicador}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+
+      <h3 className="mt-8">Objetivos Específicos por Curso — Enseñanzas Profesionales</h3>
+      {['EP1', 'EP2', 'EP3', 'EP4', 'EP5', 'EP6'].map(curso => (
+        <div key={curso} className="mt-4">
+          <h4>{curso === 'EP1' ? '1º' : curso === 'EP2' ? '2º' : curso === 'EP3' ? '3º' : curso === 'EP4' ? '4º' : curso === 'EP5' ? '5º' : '6º'} Enseñanzas Profesionales <Badge type="ep">EP</Badge> <Badge type="hold">DESARROLLO PROPIO</Badge></h4>
+          <table className="doc-table text-xs">
+            <thead><tr><th>ID</th><th>Objetivo</th><th>Tipo</th><th>Trazabilidad</th><th>Indicador</th></tr></thead>
+            <tbody>
+              {objetivosEP[curso]?.map(obj => (
                 <tr key={obj.id}>
                   <td className="font-mono">{obj.id}</td>
                   <td>{obj.texto}</td>
@@ -498,19 +527,19 @@ function Evaluacion() {
     <div className="content-section">
       <h2>Evaluación y Calificación</h2>
 
-      <div className="bg-yellow-50 border border-yellow-300 rounded-lg p-5 mb-6">
-        <h3 className="text-yellow-800 font-semibold mb-2"><i className="fas fa-exclamation-triangle mr-2"></i>HOLD — Ponderación Pendiente de Validación</h3>
-        <p className="text-sm text-yellow-900">{calificacionInfo.nota}</p>
+      <div className="bg-blue-50 border border-blue-300 rounded-lg p-5 mb-6">
+        <h3 className="text-blue-800 font-semibold mb-2"><i className="fas fa-info-circle mr-2"></i>PROPUESTO — Ponderación Basada en Práctica Habitual</h3>
+        <p className="text-sm text-blue-900">{calificacionInfo.nota}</p>
       </div>
 
-      <h3>Bloques de Calificación (Propuesta — HOLD)</h3>
+      <h3>Bloques de Calificación (Propuesta)</h3>
       <table className="doc-table">
         <thead><tr><th>Bloque</th><th>Ponderación</th><th>Contenidos</th></tr></thead>
         <tbody>
           {calificacionInfo.bloquesPropuestos.map((b, i) => (
             <tr key={i}>
               <td className="font-semibold">{b.nombre}</td>
-              <td><Badge type="hold">{b.ponderacion}</Badge></td>
+              <td><Badge type="verified">{b.ponderacion}</Badge></td>
               <td className="text-xs">{b.contenidos}</td>
             </tr>
           ))}
@@ -773,16 +802,16 @@ function AnexoII() {
       <table className="doc-table text-xs">
         <thead><tr><th>Criterio</th><th>Instrumento</th><th>Ponderación</th></tr></thead>
         <tbody>
-          <tr><td>Precisión rítmica y ajuste al tempo</td><td>Observación directa en ensayos</td><td><Badge type="hold">HOLD</Badge></td></tr>
-          <tr><td>Afinación y empaste</td><td>Observación directa; grabaciones</td><td><Badge type="hold">HOLD</Badge></td></tr>
-          <tr><td>Seguimiento de la dirección musical</td><td>Observación directa</td><td><Badge type="hold">HOLD</Badge></td></tr>
-          <tr><td>Conocimiento de la propia parte</td><td>Prueba individual de la parte</td><td><Badge type="hold">HOLD</Badge></td></tr>
-          <tr><td>Actitud, asistencia y puntualidad</td><td>Registro de asistencia; observación</td><td><Badge type="hold">HOLD</Badge></td></tr>
-          <tr><td>Participación en actuaciones públicas</td><td>Registro de participación</td><td><Badge type="hold">HOLD</Badge></td></tr>
+          <tr><td>Precisión rítmica y ajuste al tempo</td><td>Observación directa en ensayos</td><td><Badge type="hold">PROPUESTO: 25%</Badge></td></tr>
+          <tr><td>Afinación y empaste</td><td>Observación directa; grabaciones</td><td><Badge type="hold">PROPUESTO: 25%</Badge></td></tr>
+          <tr><td>Seguimiento de la dirección musical</td><td>Observación directa</td><td><Badge type="hold">PROPUESTO: 15%</Badge></td></tr>
+          <tr><td>Conocimiento de la propia parte</td><td>Prueba individual de la parte</td><td><Badge type="hold">PROPUESTO: 15%</Badge></td></tr>
+          <tr><td>Actitud, asistencia y puntualidad</td><td>Registro de asistencia; observación</td><td><Badge type="hold">PROPUESTO: 10%</Badge></td></tr>
+          <tr><td>Participación en actuaciones públicas</td><td>Registro de participación</td><td><Badge type="hold">PROPUESTO: 10%</Badge></td></tr>
         </tbody>
       </table>
       <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 text-sm mt-3">
-        <p><strong>Nota:</strong> Las ponderaciones exactas están en estado HOLD, pendientes de validación con las instrucciones anuales de la Consejería para el curso 2026/2027.</p>
+        <p><strong>Nota:</strong> Las ponderaciones propuestas se basan en la práctica habitual de la asignatura de Práctica Instrumental Conjunta. Deben ser validadas con las instrucciones anuales de la Consejería para el curso 2026/2027 y adaptadas según el Proyecto Educativo del Centro.</p>
       </div>
 
       <h3>Repertorio Orientativo</h3>

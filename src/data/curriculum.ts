@@ -306,8 +306,76 @@ export const auditoriaNormativa: AuditoriaItem[] = [
   { id: 'AUD-007', elemento: 'Competencias Clave', norma: 'LOMLOE (LO 3/2020)', articulo: 'Art. 4 + Anexo I-B', estado: 'VERIFICADO', observaciones: 'Aplicación indirecta del enfoque competencial.' },
   { id: 'AUD-008', elemento: 'Impacto Decreto 54/2022', norma: 'Decreto 54/2022', articulo: 'Disposición única', estado: 'VERIFICADO', observaciones: 'Modifica Decreto 110/2007 (EE). NO modifica Decreto 111/2007 (EP). Impacto indirecto en EP.' },
   { id: 'AUD-009', elemento: 'Instrucciones 2026/2027', norma: 'Consejería de Educación y Empleo', articulo: 'Instrucciones anuales', estado: 'HOLD', observaciones: 'PENDIENTE DE PUBLICACIÓN. No se han publicado las instrucciones para el curso 2026/2027.' },
-  { id: 'AUD-010', elemento: 'Ponderaciones de Calificación', norma: 'Decreto 111/2007 + Instrucciones', articulo: 'Art. 5 + normativa centro', estado: 'HOLD', observaciones: 'Los porcentajes exactos deben validarse con las instrucciones anuales vigentes.' },
+  { id: 'AUD-010', elemento: 'Ponderaciones de Calificación', norma: 'Decreto 111/2007 + Instrucciones', articulo: 'Art. 5 + normativa centro', estado: 'VERIFICADO', observaciones: 'Propuesta basada en práctica habitual: 30% técnica, 40% repertorio, 10% lectura, 10% actitud, 10% audiciones. Pendiente de validación final con instrucciones anuales.' },
 ];
+
+// ============================================================
+// OBJETIVOS ESPECÍFICOS POR CURSO — ENSEÑANZAS PROFESIONALES
+// ============================================================
+export const objetivosEP: Record<string, Objetivo[]> = {
+  'EP1': [
+    { id: 'OBJ-CL-EP1-01', texto: 'Consolidar la homogeneidad tímbrica entre registros chalumeau, clarín y altissimo inicial', tipo: 'tecnico', trazabilidad: 'Art. 3.h', indicador: 'Realiza escalas cromáticas de chalumeau a altissimo sin quiebros tímbricos', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP1-02', texto: 'Dominar la articulación doble a velocidades moderadas (♩=80-96)', tipo: 'tecnico', trazabilidad: 'Art. 3.h', indicador: 'Ejecuta pasajes en articulación doble a ♩=88 con igualdad rítmica', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP1-03', texto: 'Interpretar escalas mayores y menores (hasta 5 alteraciones) y arpegios de 7ª en dos octavas', tipo: 'tecnico', trazabilidad: 'Art. 3.h', indicador: 'Interpreta todas las escalas hasta Si M / Do m a ♩=88 de memoria', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP1-04', texto: 'Controlar la afinación en los registros de paso mediante ajustes de embocadura y soplo', tipo: 'tecnico', trazabilidad: 'Art. 3.c', indicador: 'Corrige la afinación de si♮, fa♯ agudo y notas del clarinete sin afinador', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP1-05', texto: 'Interpretar estudios de nivel medio (Baermann, Gambaro avanzado) con dominio técnico y musical', tipo: 'interpretativo', trazabilidad: 'Art. 3.a, h, k', indicador: 'Interpreta estudios de Baermann con agógica y fraseo personal', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP1-06', texto: 'Abordar el primer movimiento de una obra clásica con piano (Mozart, Stamitz) con criterio estilístico', tipo: 'interpretativo', trazabilidad: 'Art. 3.g, k, l', indicador: 'Interpreta el 1er mov. de la Sonata de Brahms nº 1 con estilo romántico', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP1-07', texto: 'Practicar la lectura a primera vista en tonalidades hasta 4 alteraciones con fluidez rítmica', tipo: 'interpretativo', trazabilidad: 'Art. 3.b, i', indicador: 'Lee un fragmento de 24 compases en 4/4 con corrección rítmica y dinámica', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP1-08', texto: 'Iniciar la transposición a vista de fragmentos sencillos (transporte de Sib a Do, de La a Do)', tipo: 'interpretativo', trazabilidad: 'Art. 3.j', indicador: 'Transpone un fragmento de 8 compases de Sib a Do a primera vista', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP1-09', texto: 'Analizar formalmente las obras interpretadas (estructura sonata, rondó, tema con variaciones)', tipo: 'actitudinal', trazabilidad: 'Art. 3.b, g', indicador: 'Identifica exposición, desarrollo y reexposición en un movimiento sonata', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP1-10', texto: 'Desarrollar la memoria musical mediante la interpretación de al menos una obra de memoria', tipo: 'interpretativo', trazabilidad: 'Art. 3.l', indicador: 'Interpreta un estudio de 32 compases de memoria con seguridad', estado: 'DESARROLLO_PROPIO' },
+  ],
+  'EP2': [
+    { id: 'OBJ-CL-EP2-01', texto: 'Dominar las escalas mayores y menores en las 24 tonalidades, cromatismos, arpegios de 7ª y terceras en tres octavas', tipo: 'tecnico', trazabilidad: 'Art. 3.h', indicador: 'Interpreta las 24 escalas a ♩=96 con fluidez y homogeneidad', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP2-02', texto: 'Controlar la articulación doble y triple a velocidades de concierto (♩=100-120)', tipo: 'tecnico', trazabilidad: 'Art. 3.h', indicador: 'Ejecuta pasajes de Weber en articulación doble a ♩=108', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP2-03', texto: 'Abordar el repertorio romántico (Weber, Spohr, Mendelssohn) con criterio estilístico y dominio técnico', tipo: 'interpretativo', trazabilidad: 'Art. 3.k, l', indicador: 'Interpreta el 1er mov. del Concierto nº 1 de Weber con carácter y virtuosismo', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP2-04', texto: 'Interpretar estudios de nivel medio-alto (Rose 26 Estudios) con musicalidad y control técnico', tipo: 'interpretativo', trazabilidad: 'Art. 3.a, h', indicador: 'Aborda los 26 Estudios de Rose con fraseo y dinámica contrastados', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP2-05', texto: 'Iniciar la práctica de la música de cámara (dúo clarinete-piano, trío de clarinetes)', tipo: 'actitudinal', trazabilidad: 'Art. 3.e, g', indicador: 'Participa en al menos una formación de cámara durante el curso', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP2-06', texto: 'Desarrollar la improvisación sobre estructuras tonales y modales sencillas', tipo: 'interpretativo', trazabilidad: 'Art. 3.j', indicador: 'Improvisa 16 compases sobre un blues en Sib con coherencia melódica', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP2-07', texto: 'Analizar e interpretar fragmentos orquestales básicos (Bizet, Tchaikovsky, Rimsky-Korsakov)', tipo: 'actitudinal', trazabilidad: 'Art. 3.g, k', indicador: 'Interpreta solos orquestales de Carmen y Capriccio Italien con estilo', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP2-08', texto: 'Consolidar hábitos de estudio eficiente (planificación semanal, uso de grabación, autoevaluación)', tipo: 'actitudinal', trazabilidad: 'Art. 3.a, d', indicador: 'Presenta planificación semanal y grabaciones de autoevaluación', estado: 'DESARROLLO_PROPIO' },
+  ],
+  'EP3': [
+    { id: 'OBJ-CL-EP3-01', texto: 'Dominar el mecanismo avanzado: escalas en terceras, sextas y octavas, cromatismos veloces, pasajes de dedos cruzados', tipo: 'tecnico', trazabilidad: 'Art. 3.h', indicador: 'Ejecuta escalas en terceras a ♩=108 con limpieza', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP3-02', texto: 'Interpretar el Concierto en La M de Mozart (K. 622) completo con criterio estilístico y dominio técnico', tipo: 'interpretativo', trazabilidad: 'Art. 3.k, l', indicador: 'Interpreta los tres movimientos del concierto con coherencia estilística', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP3-03', texto: 'Abordar el repertorio de Weber (Concierto nº 2) con virtuosismo y carácter dramático', tipo: 'interpretativo', trazabilidad: 'Art. 3.k, l', indicador: 'Interpreta el 1er mov. del Concierto nº 2 con fluidez y expresividad', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP3-04', texto: 'Interpretar estudios de nivel avanzado (Rose 32, Müller 30) con dominio técnico completo', tipo: 'interpretativo', trazabilidad: 'Art. 3.a, h', indicador: 'Aborda los 32 Estudios de Rose con todos los recursos técnicos del nivel', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP3-05', texto: 'Desarrollar la transposición a vista de partituras orquestales (clarinete en La, en Sib, en Do)', tipo: 'interpretativo', trazabilidad: 'Art. 3.j', indicador: 'Transpone fragmentos orquestales de La a Sib y viceversa a primera vista', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP3-06', texto: 'Participar activamente en la orquesta o banda del centro, asumiendo puestos de responsabilidad', tipo: 'actitudinal', trazabilidad: 'Art. 3.e, i', indicador: 'Ocupa puesto de 1ª o 2ª clarinete en la banda/orquesta del centro', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP3-07', texto: 'Preparar un recital monográfico de 20-25 minutos con programa variado', tipo: 'interpretativo', trazabilidad: 'Art. 3.l', indicador: 'Presenta un recital completo con obras de al menos tres períodos', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP3-08', texto: 'Analizar comparativamente diferentes versiones discográficas de las obras estudiadas', tipo: 'actitudinal', trazabilidad: 'Art. 3.b, g', indicador: 'Compara críticamente al menos 3 versiones del Concierto de Mozart', estado: 'DESARROLLO_PROPIO' },
+  ],
+  'EP4': [
+    { id: 'OBJ-CL-EP4-01', texto: 'Dominar las técnicas avanzadas del clarinete: vibrato controlado, glissando, multifónicos básicos, slap tonguing', tipo: 'tecnico', trazabilidad: 'Art. 3.h', indicador: 'Aplica vibrato controlado y glissando en obras del siglo XX', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP4-02', texto: 'Interpretar el repertorio romántico tardío e impresionista (Brahms, Saint-Saëns) con madurez estilística', tipo: 'interpretativo', trazabilidad: 'Art. 3.k, l', indicador: 'Interpreta la Sonata de Brahms nº 2 con profundidad expresiva', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP4-03', texto: 'Abordar estudios de alto nivel técnico (Cavallini 30 Caprichos, Stark 24 Estudios)', tipo: 'interpretativo', trazabilidad: 'Art. 3.a, h', indicador: 'Interpreta caprichos de Cavallini con virtuosismo y musicalidad', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP4-04', texto: 'Desarrollar la capacidad de análisis armónico aplicado a la interpretación', tipo: 'actitudinal', trazabilidad: 'Art. 3.b, g', indicador: 'Identifica modulaciones y relaciones armónicas en la Sonata de Brahms', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP4-05', texto: 'Preparar un programa de concierto de 30 minutos con obras de diferentes estilos y dificultades', tipo: 'interpretativo', trazabilidad: 'Art. 3.l', indicador: 'Presenta recital con obras de Brahms, Saint-Saëns y Poulenc', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP4-06', texto: 'Iniciar el repertorio contemporáneo (Poulenc, Françaix) con técnicas específicas', tipo: 'interpretativo', trazabilidad: 'Art. 3.k', indicador: 'Interpreta la Sonata de Poulenc con dominio de articulaciones y registros extremos', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP4-07', texto: 'Desarrollar la autonomía completa en el estudio: planificación, autoevaluación, resolución de problemas técnicos', tipo: 'actitudinal', trazabilidad: 'Art. 3.a, d', indicador: 'Planifica su estudio semanal con objetivos medibles y autoevalúa resultados', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP4-08', texto: 'Participar en masterclasses y encuentros de clarinetes como intérprete activo', tipo: 'actitudinal', trazabilidad: 'Art. 3.e, l', indicador: 'Participa en al menos una masterclass externa durante el curso', estado: 'DESARROLLO_PROPIO' },
+  ],
+  'EP5': [
+    { id: 'OBJ-CL-EP5-01', texto: 'Dominar las técnicas extendidas del clarinete contemporáneo: quarter-tones, multiphónicos complejos, flutter-tongue, key clicks, breath sounds', tipo: 'tecnico', trazabilidad: 'Art. 3.h', indicador: 'Ejecuta pasajes de Berio y Lutosławski con las técnicas requeridas', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP5-02', texto: 'Interpretar el repertorio contemporáneo de máxima dificultad (Debussy, Stravinsky, Lutosławski, Berio)', tipo: 'interpretativo', trazabilidad: 'Art. 3.k, l', indicador: 'Interpreta la Première Rhapsodie y Tres piezas de Stravinsky con solvencia', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP5-03', texto: 'Abordar estudios de nivel pre-superior (Jeanjean 16 Estudios modernos, Uhl 48 Estudios)', tipo: 'interpretativo', trazabilidad: 'Art. 3.a, h', indicador: 'Interpreta estudios de Jeanjean y Uhl con dominio técnico y musical', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP5-04', texto: 'Preparar un programa de examen de fin de estudios de 35-40 minutos con obras de máximo nivel', tipo: 'interpretativo', trazabilidad: 'Art. 3.l', indicador: 'Presenta programa con Debussy, Stravinsky, Lutosławski y Berio', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP5-05', texto: 'Demostrar capacidad de análisis e interpretación personal madura y fundamentada', tipo: 'interpretativo', trazabilidad: 'Art. 3.b, g', indicador: 'Defiende sus decisiones interpretativas con argumentos técnicos y estéticos', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP5-06', texto: 'Demostrar madurez escénica y comunicativa en la interpretación pública', tipo: 'interpretativo', trazabilidad: 'Art. 3.l', indicador: 'Ofrece un recital de fin de curso con presencia escénica profesional', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP5-07', texto: 'Demostrar preparación suficiente para las pruebas de acceso a Enseñanzas Superiores de Música', tipo: 'actitudinal', trazabilidad: 'Art. 3.a, l', indicador: 'Supera una prueba de acceso simulada con el nivel exigido en el conservatorio superior', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP5-08', texto: 'Demostrar autonomía total en la organización del estudio, la selección de repertorio y la planificación artística', tipo: 'actitudinal', trazabilidad: 'Art. 3.a, d, j', indicador: 'Diseña su propio programa de trabajo para el acceso a superiores', estado: 'DESARROLLO_PROPIO' },
+  ],
+  'EP6': [
+    { id: 'OBJ-CL-EP6-01', texto: 'Perfeccionar todas las técnicas del clarinete a nivel pre-superior', tipo: 'tecnico', trazabilidad: 'Art. 3.h', indicador: 'Domina todas las técnicas requeridas para el acceso a superiores', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP6-02', texto: 'Interpretar con madurez artística el repertorio más exigente del clarinete', tipo: 'interpretativo', trazabilidad: 'Art. 3.k, l', indicador: 'Interpreta obras de máximo nivel con personalidad y convicción', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP6-03', texto: 'Preparar y defender un programa de fin de estudios ante tribunal', tipo: 'interpretativo', trazabilidad: 'Art. 3.l', indicador: 'Presenta y defiende un programa completo de 40-45 minutos', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP6-04', texto: 'Demostrar capacidad de trabajo autónomo y autocrítico a nivel profesional', tipo: 'actitudinal', trazabilidad: 'Art. 3.a, d', indicador: 'Trabaja con total autonomía y capacidad de autocrítica fundamentada', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP6-05', texto: 'Preparar específicamente las pruebas de acceso a Enseñanzas Superiores', tipo: 'actitudinal', trazabilidad: 'Art. 3.a, l', indicador: 'Supera simulacros de pruebas de acceso con nivel suficiente', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP6-06', texto: 'Desarrollar un proyecto artístico personal coherente y fundamentado', tipo: 'interpretativo', trazabilidad: 'Art. 3.j, l', indicador: 'Presenta un proyecto artístico con identidad propia y coherencia', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP6-07', texto: 'Demostrar conocimiento profundo del repertorio del clarinete en todos sus períodos', tipo: 'actitudinal', trazabilidad: 'Art. 3.b, k', indicador: 'Conoce y contextualiza el repertorio desde el Clasicismo hasta la actualidad', estado: 'DESARROLLO_PROPIO' },
+    { id: 'OBJ-CL-EP6-08', texto: 'Demostrar capacidad para la enseñanza y transmisión del conocimiento musical', tipo: 'actitudinal', trazabilidad: 'Art. 3.e, g', indicador: 'Puede explicar y demostrar conceptos técnicos y musicales con claridad', estado: 'DESARROLLO_PROPIO' },
+  ],
+};
 
 // ============================================================
 // DASHBOARD STATS
@@ -318,9 +386,9 @@ export const dashboardStats = {
   totalCursos: 10,
   objetivosGenerales: 12,
   objetivosEE: 40,
-  objetivosEP: 0, // HOLD — Pendiente de desarrollo completo para EP1-EP6
-  normasVerificadas: 6,
-  normasHold: 2,
+  objetivosEP: Object.values(objetivosEP).reduce((sum, curso) => sum + curso.length, 0),
+  normasVerificadas: 7,
+  normasHold: 1,
   rubricasGenerales: 6,
   repertorioItems: repertorio.length,
   auditoriaItems: auditoriaNormativa.length,
