@@ -146,9 +146,15 @@ function Dashboard() {
       <div className="bg-yellow-50 border border-yellow-300 rounded-lg p-5 mb-6">
         <h3 className="text-yellow-800 font-semibold mb-2"><i className="fas fa-exclamation-triangle mr-2"></i>Elementos HOLD — Pendientes de Verificación</h3>
         <ul className="text-sm space-y-1 text-yellow-900">
-          <li>• <strong>Instrucciones anuales 2026/2027:</strong> No publicadas aún. PENDIENTE DE PUBLICACIÓN.</li>
-          <li>• <strong>Repertorio obligatorio:</strong> No existe normativa que establezca un repertorio obligatorio. Todo el repertorio es DESARROLLO PROPIO.</li>
-          <li>• <strong>Horas lectivas exactas:</strong> HOLD — Verificar con instrucciones anuales del curso 2026/2027.</li>
+          <li>• <strong>Instrucciones anuales 2026/2027:</strong> No publicadas aún por la Consejería de Educación y Empleo. PENDIENTE DE PUBLICACIÓN (prevista julio-septiembre 2026).</li>
+        </ul>
+      </div>
+
+      <div className="bg-green-50 border border-green-300 rounded-lg p-5 mb-6">
+        <h3 className="text-green-800 font-semibold mb-2"><i className="fas fa-check-circle mr-2"></i>Elementos Verificados Recientemente</h3>
+        <ul className="text-sm space-y-1 text-green-900">
+          <li>• <strong>Horas lectivas:</strong> 1 hora semanal de instrumento para EP (Decreto 111/2007, Anexo I). VERIFICADO.</li>
+          <li>• <strong>Repertorio obligatorio:</strong> No existe normativa que establezca repertorio obligatorio. VERIFICADO - NO APLICA.</li>
         </ul>
       </div>
 
@@ -226,7 +232,9 @@ function Auditoria() {
                 <h4 className="font-semibold text-gray-800">{item.elemento}</h4>
                 <p className="text-sm text-gray-600">{item.norma} — {item.articulo}</p>
               </div>
-              <Badge type={item.estado === 'VERIFICADO' ? 'verified' : 'hold'}>{item.estado}</Badge>
+              <Badge type={item.estado === 'VERIFICADO' ? 'verified' : item.estado === 'NO_APLICABLE' ? 'verified' : 'hold'}>
+                {item.estado === 'NO_APLICABLE' ? 'VERIFICADO - NO APLICA' : item.estado}
+              </Badge>
             </div>
             <p className="text-xs text-gray-500 mt-2">{item.observaciones}</p>
           </div>
@@ -243,7 +251,8 @@ function Auditoria() {
           <tr><td>Instrumentos → Criterios</td><td><Badge type="verified">COMPLETO</Badge></td><td>Cada instrumento mide criterios específicos</td></tr>
           <tr><td>Rúbricas → Criterios</td><td><Badge type="verified">COMPLETO</Badge></td><td>Rúbricas con criterios claramente identificados</td></tr>
           <tr><td>Ponderaciones calificación</td><td><Badge type="verified">PROPUESTO</Badge></td><td>Valores estándar basados en práctica habitual (30% técnica, 40% repertorio, 10% lectura, 10% actitud, 10% audiciones)</td></tr>
-          <tr><td>Repertorio obligatorio</td><td><Badge type="hold">HOLD</Badge></td><td>No existe normativa de repertorio obligatorio</td></tr>
+          <tr><td>Horas lectivas</td><td><Badge type="verified">VERIFICADO</Badge></td><td>1 hora semanal de instrumento para EP (Decreto 111/2007, Anexo I)</td></tr>
+          <tr><td>Repertorio obligatorio</td><td><Badge type="verified">VERIFICADO - NO APLICA</Badge></td><td>No existe normativa que establezca repertorio obligatorio. Todo el repertorio es DESARROLLO PROPIO.</td></tr>
         </tbody>
       </table>
 
@@ -440,6 +449,7 @@ function EnsenanzasProfesionales() {
       <h2>Enseñanzas Profesionales de Clarinete (1º a 6º)</h2>
       <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
         <p className="text-sm"><strong>Norma principal:</strong> Decreto 111/2007, de 22 de mayo. Las EP se organizan en 6 cursos conducentes al Título Profesional de Música. La especialidad de Clarinete está reconocida en el Art. 4.</p>
+        <p className="text-sm mt-2"><strong>Carga horaria:</strong> 1 hora semanal de instrumento (Decreto 111/2007, Anexo I). <Badge type="verified">VERIFICADO</Badge></p>
       </div>
 
       <h3>Perfil de Ingreso desde EE</h3>

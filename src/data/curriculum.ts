@@ -305,8 +305,10 @@ export const auditoriaNormativa: AuditoriaItem[] = [
   { id: 'AUD-006', elemento: 'Promoción y Permanencia', norma: 'Decreto 111/2007 + Orden 28/04/2009', articulo: 'Art. 5 + Art. 15-18', estado: 'VERIFICADO', observaciones: 'Criterios de promoción y permanencia.' },
   { id: 'AUD-007', elemento: 'Competencias Clave', norma: 'LOMLOE (LO 3/2020)', articulo: 'Art. 4 + Anexo I-B', estado: 'VERIFICADO', observaciones: 'Aplicación indirecta del enfoque competencial.' },
   { id: 'AUD-008', elemento: 'Impacto Decreto 54/2022', norma: 'Decreto 54/2022', articulo: 'Disposición única', estado: 'VERIFICADO', observaciones: 'Modifica Decreto 110/2007 (EE). NO modifica Decreto 111/2007 (EP). Impacto indirecto en EP.' },
-  { id: 'AUD-009', elemento: 'Instrucciones 2026/2027', norma: 'Consejería de Educación y Empleo', articulo: 'Instrucciones anuales', estado: 'HOLD', observaciones: 'PENDIENTE DE PUBLICACIÓN. No se han publicado las instrucciones para el curso 2026/2027.' },
+  { id: 'AUD-009', elemento: 'Instrucciones 2026/2027', norma: 'Consejería de Educación y Empleo', articulo: 'Instrucciones anuales', estado: 'HOLD', observaciones: 'PENDIENTE DE PUBLICACIÓN. No se han publicado las instrucciones para el curso 2026/2027. Prevista entre julio-septiembre 2026.' },
   { id: 'AUD-010', elemento: 'Ponderaciones de Calificación', norma: 'Decreto 111/2007 + Instrucciones', articulo: 'Art. 5 + normativa centro', estado: 'VERIFICADO', observaciones: 'Propuesta basada en práctica habitual: 30% técnica, 40% repertorio, 10% lectura, 10% actitud, 10% audiciones. Pendiente de validación final con instrucciones anuales.' },
+  { id: 'AUD-011', elemento: 'Horas Lectivas', norma: 'Decreto 111/2007', articulo: 'Anexo I', estado: 'VERIFICADO', observaciones: '1 hora semanal de instrumento para Enseñanzas Profesionales. Carga horaria establecida en el Anexo I del Decreto 111/2007.' },
+  { id: 'AUD-012', elemento: 'Repertorio Obligatorio', norma: 'Decreto 111/2007', articulo: 'N/A', estado: 'NO_APLICABLE', observaciones: 'VERIFICADO: No existe normativa que establezca un repertorio obligatorio. Todo el repertorio es DESARROLLO PROPIO del centro y del profesorado.' },
 ];
 
 // ============================================================
@@ -387,11 +389,12 @@ export const dashboardStats = {
   objetivosGenerales: 12,
   objetivosEE: 40,
   objetivosEP: Object.values(objetivosEP).reduce((sum, curso) => sum + curso.length, 0),
-  normasVerificadas: 7,
+  normasVerificadas: 8,
   normasHold: 1,
   rubricasGenerales: 6,
   repertorioItems: repertorio.length,
   auditoriaItems: auditoriaNormativa.length,
   auditoriaVerificados: auditoriaNormativa.filter(a => a.estado === 'VERIFICADO').length,
   auditoriaHold: auditoriaNormativa.filter(a => a.estado === 'HOLD').length,
+  auditoriaNoAplica: auditoriaNormativa.filter(a => a.estado === 'NO_APLICABLE').length,
 };
