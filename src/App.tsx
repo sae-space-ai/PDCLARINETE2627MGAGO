@@ -847,11 +847,17 @@ function Despliegue() {
         <pre>{`programacion-clarinete-2026-2027/
 ├── src/
 │   ├── App.tsx
-│   ├── data/curriculum.ts
-│   └── sections/
-├── docs/ (VitePress)
-├── .github/workflows/deploy.yml
+│   ├── data/
+│   │   └── curriculum.ts
+│   ├── main.tsx
+│   └── index.css
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── index.html
 ├── package.json
+├── vite.config.js
+├── tsconfig.json
 ├── README.md
 ├── ARCHITECTURE.md
 ├── TRACEABILITY.md
@@ -872,9 +878,10 @@ git push -u origin main`}</pre>
       <ol className="list-decimal ml-6 space-y-2 text-sm">
         <li>Acceder a vercel.com con GitHub</li>
         <li>"Add New → Project" → importar repositorio</li>
-        <li>Framework Preset: VitePress</li>
-        <li>Build Command: <code className="bg-gray-100 px-1 rounded">npm run docs:build</code></li>
-        <li>Output Directory: <code className="bg-gray-100 px-1 rounded">docs/.vitepress/dist</code></li>
+        <li>Framework Preset: Vite</li>
+        <li>Build Command: <code className="bg-gray-100 px-1 rounded">npm run build</code></li>
+        <li>Output Directory: <code className="bg-gray-100 px-1 rounded">dist</code></li>
+        <li>Install Command: <code className="bg-gray-100 px-1 rounded">npm install</code></li>
         <li>Deploy → URL resultante</li>
         <li>Despliegue automático en cada push a main</li>
       </ol>
@@ -882,24 +889,59 @@ git push -u origin main`}</pre>
       <h3 className="mt-6">Alternativa: GitHub Pages</h3>
       <div className="bg-gray-900 text-green-400 rounded-lg p-4 font-mono text-xs overflow-x-auto">
         <pre>{`# .github/workflows/deploy.yml
-name: Deploy VitePress
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
-      - run: npm run docs:build
-      - uses: peaceiris/actions-gh-pages@v3
+          cache: npm
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: \${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/.vitepress/dist`}</pre>
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: \${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4`}</pre>
       </div>
     </div>
   );
