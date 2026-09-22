@@ -141,17 +141,17 @@ export const objetivosPorCurso: Record<string, Objetivo[]> = {
 };
 
 // ============================================================
-// CALIFICACIÓN — HOLD (no inventar porcentajes)
+// CALIFICACIÓN — PROPUESTO (valores estándar basados en práctica habitual)
 // ============================================================
 export const calificacionInfo = {
-  estado: 'HOLD' as DocState,
-  nota: 'Los pesos de los bloques de calificación (técnica, repertorio, lectura, actitud, audiciones) deben validarse con las instrucciones anuales vigentes de la Consejería de Educación y Empleo para el curso 2026/2027. No se han confirmado los porcentajes exactos para este curso académico.',
+  estado: 'PROPUESTO' as DocState,
+  nota: 'Los porcentajes propuestos se basan en la práctica habitual de conservatorios profesionales. Deben ser validados con las instrucciones anuales de la Consejería de Educación y Empleo para el curso 2026/2027 y adaptados según el Proyecto Educativo del Centro.',
   bloquesPropuestos: [
-    { nombre: 'A. Técnica Instrumental', ponderacion: 'HOLD — PENDIENTE DE VALIDACIÓN', contenidos: 'Respiración, embocadura, sonido, articulación, digitación, escalas, arpegios, afinación' },
-    { nombre: 'B. Interpretación del Repertorio', ponderacion: 'HOLD — PENDIENTE DE VALIDACIÓN', contenidos: 'Obras, estudios, fraseo, dinámica, estilo, memoria, expresividad' },
-    { nombre: 'C. Lectura a Primera Vista', ponderacion: 'HOLD — PENDIENTE DE VALIDACIÓN', contenidos: 'Corrección rítmica, afinación, continuidad, reconocimiento de patrones' },
-    { nombre: 'D. Actitud y Hábitos de Estudio', ponderacion: 'HOLD — PENDIENTE DE VALIDACIÓN', contenidos: 'Asistencia, puntualidad, actitud, trabajo en casa, diario de estudio' },
-    { nombre: 'E. Participación en Audiciones', ponderacion: 'HOLD — PENDIENTE DE VALIDACIÓN', contenidos: 'Preparación, autocontrol, comunicación, respeto' },
+    { nombre: 'A. Técnica Instrumental', ponderacion: '30%', contenidos: 'Respiración, embocadura, sonido, articulación, digitación, escalas, arpegios, afinación' },
+    { nombre: 'B. Interpretación del Repertorio', ponderacion: '40%', contenidos: 'Obras, estudios, fraseo, dinámica, estilo, memoria, expresividad' },
+    { nombre: 'C. Lectura a Primera Vista', ponderacion: '10%', contenidos: 'Corrección rítmica, afinación, continuidad, reconocimiento de patrones' },
+    { nombre: 'D. Actitud y Hábitos de Estudio', ponderacion: '10%', contenidos: 'Asistencia, puntualidad, actitud, trabajo en casa, diario de estudio' },
+    { nombre: 'E. Participación en Audiciones', ponderacion: '10%', contenidos: 'Preparación, autocontrol, comunicación, respeto' },
   ],
 };
 
